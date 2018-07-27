@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/index';
 import {environment} from '../../environments/environment';
+import {tap} from 'rxjs/internal/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept' : 'application/json'})
@@ -11,23 +12,25 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-  urlAuth = environment.url + '/oauth';
-  private client_secret = 'GQhZ5FonrJhg1JsbE9z5TTooK0OSyczHSDsHyj05';
-  private client_id = '2';
-  private grant_type = 'password';
-  private grant = '*';
-
+  urlAuth = environment.url + '/login';
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string) {
-    return this.http.post(this.urlAuth + '/token', {
-      'username': email,
+    return this.http.post(this.urlAuth, {
+      'email': email,
       'password': password,
-      'client_secret': this.client_secret,
-      'client_id': this.client_id,
-      'grant_type': this.grant_type,
-      'grant': this.grant
-    }, httpOptions);
+    }, httpOptions)
+      .pipe(tap(res => this.setSession(res)));
+  }
+/*
+  private setSession(authResult) {
+    localStorage.setItem('access_token', authResult.access_token);
+    localStorage.setItem('expires_in', JSON.stringify(authResult.expires_in.valueOf()));
   }
 
+  logout() {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('expires_in');
+  }
+*/
 }
