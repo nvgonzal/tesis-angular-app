@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import {FormsModule} from '@angular/forms';
+import {AuthGuard} from './guards/auth.guard';
+import { PilotoListComponent } from './piloto/piloto-list/piloto-list.component';
+import {AuthTokenInterceptor} from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    PilotoListComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,10 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
