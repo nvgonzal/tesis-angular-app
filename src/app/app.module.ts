@@ -8,13 +8,19 @@ import { RegisterComponent } from './register/register.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import {FormsModule} from '@angular/forms';
+import { ClienteComponent } from './cliente/cliente.component';
+import { SysadminComponent } from './sysadmin/sysadmin.component';
+import { OwnerComponent } from './owner/owner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ClienteComponent,
+    SysadminComponent,
+    OwnerComponent
   ],
   imports: [
     BrowserModule,
