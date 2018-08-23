@@ -18,6 +18,10 @@ import {AuthTokenInterceptor} from './helpers/auth.interceptor';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    ClienteComponent,
+    SysadminComponent,
+    OwnerComponent
+    HomeComponent,
     PilotoListComponent
   ],
   imports: [
