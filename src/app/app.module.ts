@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,6 +10,10 @@ import {FormsModule} from '@angular/forms';
 import {AuthGuard} from './guards/auth.guard';
 import { PilotoListComponent } from './piloto/piloto-list/piloto-list.component';
 import {AuthTokenInterceptor} from './helpers/auth.interceptor';
+import {ClienteComponent} from './cliente/cliente.component';
+import {SysadminComponent} from './sysadmin/sysadmin.component';
+import {OwnerComponent} from './owner/owner.component';
+
 
 @NgModule({
   declarations: [
@@ -20,9 +23,9 @@ import {AuthTokenInterceptor} from './helpers/auth.interceptor';
     HomeComponent,
     ClienteComponent,
     SysadminComponent,
-    OwnerComponent
+    OwnerComponent,
     HomeComponent,
-    PilotoListComponent
+    PilotoListComponent,
   ],
   imports: [
     BrowserModule,
