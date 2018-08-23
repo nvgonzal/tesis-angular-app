@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Nombre</th>
+    <th>RUT</th>
+    <th>Email</th>
+    <th>Telefono fijo</th>
+    <th>Celular</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let piloto of pilotos$ | async">
+    <th scope="col">{{piloto.id}}</th>
+    <td>{{piloto.nombre_completo}}</td>
+    <td>{{piloto.rut}}</td>
+    <td>{{piloto.email}}</td>
+    <td>{{piloto.telefono_fijo}}</td>
+    <td>{{piloto.celular}}</td>
+  </tr>
+  </tbody>
+</table>
