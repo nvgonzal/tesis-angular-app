@@ -9,7 +9,7 @@
       <input type="password" id="password" class="form-control" required #userPass>
     </div>
     <button class="btn btn-success"  (click)="login(userEmail.value,userPass.value)" >Iniciar sesion</button>
-  <div *ngIf="error" class="alert alert-danger">
-    Tus credenciales son incorrectas
+  <div class="alert alert-danger" *ngIf="error">
+    {{error}}
   </div>
 </div>

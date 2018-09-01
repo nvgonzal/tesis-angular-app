@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {AuthGuard} from './guards/auth.guard';
 import { PilotoListComponent } from './piloto/piloto-list/piloto-list.component';
 import {AuthTokenInterceptor} from './helpers/auth.interceptor';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {AuthTokenInterceptor} from './helpers/auth.interceptor';
     PilotoListComponent
   ],
   imports: [
+    NgxSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
