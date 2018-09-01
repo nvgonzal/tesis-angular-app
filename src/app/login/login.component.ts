@@ -24,9 +24,8 @@ export class LoginComponent implements OnInit {
   login(email: string, password: string): void {
     this.spinner.show();
     this.authService.login(email, password)
-      .subscribe(res => {this.authService.setSession(res); this.router.navigate([this.returnUrl]); }
-      , res => this.errorHandle(res)
-        , () => this.spinner.hide());
+      .subscribe(res => {this.authService.setSession(res); this.router.navigate([this.returnUrl]); this.spinner.hide(); }
+      , res => this.errorHandle(res));
   }
 
   errorHandle(res) {
@@ -34,5 +33,6 @@ export class LoginComponent implements OnInit {
     if (this.error == null) {
       this.error = 'Error desconocido';
     }
+    this.spinner.hide();
   }
 }
