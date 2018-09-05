@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
 
   onSuccess(res: any) {
     this.message = res.message + '. Redirigiendo a la pagina de inicio de sesion.';
-    setTimeout(() => { this.spinner.hide(); this.router.navigateByUrl('/login'); }, 2500);
+    setTimeout(() => {this.spinner.hide(); this.router.navigateByUrl('/login', { queryParams: { email: this.userEmail }}); }, 4000);
   }
 
 }
