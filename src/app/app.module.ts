@@ -12,6 +12,16 @@ import {AuthGuard} from './guards/auth.guard';
 import { PilotoListComponent } from './piloto/piloto-list/piloto-list.component';
 import {AuthTokenInterceptor} from './helpers/auth.interceptor';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { HeaderComponent } from './commons/header/header.component';
+import { FooterComponent } from './commons/footer/footer.component';
+import { SysadminCreateComponent } from './sysadmin/sysadmin-create/sysadmin-create.component';
+import { SysadminSidebarComponent } from './sysadmin/sysadmin-sidebar/sysadmin-sidebar.component';
+import { SysadminListComponent } from './sysadmin/sysadmin-list/sysadmin-list.component';
+import { DuenoListComponent } from './dueno/dueno-list/dueno-list.component';
+import { DuenoCreateComponent } from './dueno/dueno-create/dueno-create.component';
+import { DuenoEditComponent } from './dueno/dueno-edit/dueno-edit.component';
+import { DuenoHomeComponent } from './dueno/dueno-home/dueno-home.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +29,16 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    PilotoListComponent
+    PilotoListComponent,
+    HeaderComponent,
+    FooterComponent,
+    SysadminCreateComponent,
+    SysadminSidebarComponent,
+    SysadminListComponent,
+    DuenoListComponent,
+    DuenoCreateComponent,
+    DuenoEditComponent,
+    DuenoHomeComponent
   ],
   imports: [
     NgxSpinnerModule,
