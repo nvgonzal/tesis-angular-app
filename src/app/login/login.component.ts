@@ -9,8 +9,9 @@ import {NgxSpinnerService} from 'ngx-spinner';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  error: String;
-  returnUrl: String;
+  error: string;
+  returnUrl: string;
+  userEmail: string;
 
   constructor(private authService: AuthService,
               private router: Router,
@@ -19,11 +20,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'home';
+    this.userEmail = this.route.snapshot.queryParams['email'] || '';
   }
 
-  login(email: string, password: string): void {
+  login(password: string): void {
     this.spinner.show();
-    this.authService.login(email, password)
+    this.authService.login(this.userEmail, password)
       .subscribe(res => {this.authService.setSession(res); this.router.navigate([this.returnUrl]); this.spinner.hide(); }
       , res => this.errorHandle(res));
   }
