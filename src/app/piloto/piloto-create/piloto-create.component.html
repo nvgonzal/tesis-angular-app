@@ -1,0 +1,47 @@
+<ngx-spinner
+  bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-atom">
+  <p style="font-size: 20px; color: white">{{message}}</p>
+</ngx-spinner>
+<div class="container">
+  <h2>Ingresar piloto</h2>
+  <div *ngIf="errors">
+    <p>{{errors}}</p>
+  </div>
+  <form #registerForm="ngForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userEmail" required #spy>
+      {{spy.className}}
+    </div>
+    <div class="form-group">
+      <label for="nombres">Nombres</label>
+      <input id="nombres" class="form-control" name="nombre" [(ngModel)]="userNombres" required>
+    </div>
+    <div class="form-group">
+      <label for="ap_paterno">Apellido Paterno</label>
+      <input id="ap_paterno" class="form-control" name="ap_paterno" [(ngModel)]="userApellidoP" required>
+    </div>
+    <div class="form-group">
+      <label for="ap_materno">Apellido Materno</label>
+      <input id="ap_materno" class="form-control" name="ap_materno" [(ngModel)]="userApellidoM" required>
+    </div>
+    <div class="form-group">
+      <label for="rut">Rut</label>
+      <input id="rut" class="form-control" name="rut" [(ngModel)]="userRut">
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" class="form-control" name="password" [(ngModel)]="userPassword" minlength="6" required>
+    </div>
+    <div class="form-group">
+      <label for="celular">Telefono celular</label>
+      <input id="celular" class="form-control" name="celular" [(ngModel)]="userCelular" required>
+    </div>
+    <div class="form-group">
+      <label for="telefono_fijo">Telefono fijo</label>
+      <input id="telefono_fijo" class="form-control" name="fono" [(ngModel)]="userFono">
+    </div>
+    <button type="submit" class="btn btn-danger" [disabled]="!registerForm.form.valid"
+            (click)="submit()" >Crear cuenta</button>
+  </form>
+</div>

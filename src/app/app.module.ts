@@ -12,6 +12,7 @@ import {AuthGuard} from './guards/auth.guard';
 import { PilotoListComponent } from './piloto/piloto-list/piloto-list.component';
 import {AuthTokenInterceptor} from './helpers/auth.interceptor';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { PilotoCreateComponent } from './piloto/piloto-create/piloto-create.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    PilotoListComponent
+    PilotoListComponent,
+    PilotoCreateComponent
   ],
   imports: [
     NgxSpinnerModule,
