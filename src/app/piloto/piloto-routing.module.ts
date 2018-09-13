@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'choferes', component: PilotoHomeComponent, canActivate: [AuthGuard],
     children: [
       {
-        path: '',
+        path: 'list',
         component: PilotoListComponent,
       },
       {

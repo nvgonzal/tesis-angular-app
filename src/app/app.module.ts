@@ -13,6 +13,7 @@ import {AuthTokenInterceptor} from './helpers/auth.interceptor';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {DuenoModule} from './dueno/dueno.module';
 import {CommonsResourcesModule} from './commons/commons-resources.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {CommonsResourcesModule} from './commons/commons-resources.module';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     NgxSpinnerModule,
