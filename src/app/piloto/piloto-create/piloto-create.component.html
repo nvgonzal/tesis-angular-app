@@ -30,10 +30,6 @@
       <input id="rut" class="form-control" name="rut" [(ngModel)]="userRut">
     </div>
     <div class="form-group">
-      <label for="password">Contraseña</label>
-      <input type="password" id="password" class="form-control" name="password" [(ngModel)]="userPassword" minlength="6" required>
-    </div>
-    <div class="form-group">
       <label for="celular">Telefono celular</label>
       <input id="celular" class="form-control" name="celular" [(ngModel)]="userCelular" required>
     </div>
@@ -42,6 +38,6 @@
       <input id="telefono_fijo" class="form-control" name="fono" [(ngModel)]="userFono">
     </div>
     <button type="submit" class="btn btn-danger" [disabled]="!registerForm.form.valid"
-            (click)="submit()" >Crear cuenta</button>
+            (click)="createPiloto()" >Crear cuenta</button>
   </form>
 </div>
