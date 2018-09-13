@@ -6,10 +6,7 @@ import {PilotoListComponent} from './piloto-list/piloto-list.component';
 import {PilotoCreateComponent} from './piloto-create/piloto-create.component';
 
 const routes: Routes = [
-  { path: '', component: PilotoListComponent},
-  { path: 'create', component: PilotoCreateComponent},
-  /*
-  { path: '', component: PilotoHomeComponent, canActivate: [AuthGuard],
+  { path: 'choferes', component: PilotoHomeComponent, canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -19,7 +16,7 @@ const routes: Routes = [
         path: 'create',
         component: PilotoCreateComponent
       }
-    ]}*/
+    ]}
 ];
 
 @NgModule({
