@@ -16,14 +16,17 @@ export class PilotoListComponent implements OnInit {
               private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.pilotos$ = this.pilotoService.getPilotos();
+    this.updateList();
   }
   deletePiloto(id: number) {
     this.spinner.show();
     this.pilotoService.deletePiloto(id).subscribe(
-      res => {this.message = 'Piloto elimnado'; this.spinner.hide(); },
+      res => {this.message = 'Piloto elimnado'; this.spinner.hide(); this.updateList();},
        res => {this.message = 'No se ha podido eliminar piloto'; this.spinner.hide(); }
     );
+  }
+  updateList() {
+    this.pilotos$ = this.pilotoService.getPilotos();
   }
 
 }
