@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgxSpinnerService} from 'ngx-spinner';
@@ -8,7 +8,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   error: string;
   returnUrl: string;
   userEmail: string;
@@ -36,5 +36,8 @@ export class LoginComponent implements OnInit {
       this.error = 'Error desconocido';
     }
     this.spinner.hide();
+  }
+  ngOnDestroy() {
+
   }
 }

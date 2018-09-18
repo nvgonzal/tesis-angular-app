@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AuthGuard} from '../guards/auth.guard';
+import {AuthGuard} from '../../guards/auth.guard';
 import {PilotoHomeComponent} from './piloto-home.component';
 import {PilotoListComponent} from './piloto-list/piloto-list.component';
 import {PilotoCreateComponent} from './piloto-create/piloto-create.component';
