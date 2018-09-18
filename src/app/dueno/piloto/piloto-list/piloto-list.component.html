@@ -1,3 +1,10 @@
+<ngx-spinner
+  bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-atom">
+  <p style="font-size: 20px; color: white">Cargando...</p>
+</ngx-spinner>
+<div *ngIf="message">
+{{message}}
+</div>
 <table class="table">
   <thead>
   <tr>
@@ -17,6 +24,7 @@
     <td>{{piloto.email}}</td>
     <td>{{piloto.telefono_fijo}}</td>
     <td>{{piloto.celular}}</td>
+    <td><button (click)="deletePiloto(piloto.id)">x</button></td>
   </tr>
   </tbody>
 </table>

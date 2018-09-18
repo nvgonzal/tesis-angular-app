@@ -7,7 +7,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: '../piloto/piloto.module#PilotoModule'
+        loadChildren: './piloto/piloto.module#PilotoModule'
       },
     ]},
 

@@ -29,17 +29,18 @@ export class PilotoCreateComponent implements OnInit {
     this.spinner.show();
     this.pilotoService.createPiloto(this.userEmail, this.userNombres, this.userApellidoP
       , this.userApellidoM, this.userRut, this.userCelular, this.userFono).subscribe(
-        res => this.onSuccess(res));
+        res => this.onSuccess(res),
+      res => this.errorHandle(res));
   }
   onSuccess(res: any) {
     this.message = res.message;
     setTimeout(() => {
       this.spinner.hide();
-      this.router.navigateByUrl('/choferes');
+      this.router.navigateByUrl('/dueno/choferes/list');
     }, 5000);
   }
   errorHandle(res: any) {
-    this.errors = res.error;
+    this.errors = res.errors;
     this.spinner.hide();
   }
 }
