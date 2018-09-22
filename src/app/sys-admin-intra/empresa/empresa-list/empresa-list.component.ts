@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/index';
 import {Empresa} from '../../../models/empresa';
 import {EmpresaService} from '../../../services/empresa.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-empresa-list',
@@ -11,13 +12,27 @@ import {EmpresaService} from '../../../services/empresa.service';
 export class EmpresaListComponent implements OnInit {
   empresas$: Observable<Empresa[]>;
   message: string;
-  constructor(private empresaService: EmpresaService) { }
+  constructor(private empresaService: EmpresaService,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.updateList();
   }
-  updateList() {
+  updateList(): void {
     this.empresas$ = this.empresaService.getEmpresas();
+  }
+  removeEmpresa(id: number): void {
+    this.spinner.show();
+    this.empresaService.deleteEmpresa(id).subscribe(() => this.successRemove(), () => this.handleErrorRemove());
+  }
+  successRemove(): void {
+    this.message = 'Empresa eliminada con exito.';
+    this.updateList();
+    this.spinner.hide();
+  }
+  handleErrorRemove(): void {
+    this.message = 'Error al eliminar empresa.';
+    this.spinner.hide();
   }
 
 }

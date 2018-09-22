@@ -24,9 +24,10 @@
     <td>{{empresa.rut}}</td>
     <td>{{empresa.razon_social}}</td>
     <td>{{empresa.direccion}}</td>
-    <td>{{empresa.cuenta_pagos}}</td>
+    <td>{{empresa.cuenta_pago}}</td>
     <td>{{empresa.valoracion}}</td>
-    <td><button (click)="deletePiloto(empresa.id)">x</button></td>
+    <td><button (click)="removeEmpresa(empresa.id)"><i class="fa fa-remove fa-fw"></i></button></td>
+    <td><button routerLink="/sysadmin/empresas/details/{{empresa.id}}"><i class="fa fa-book fa-fw"></i> </button></td>
   </tr>
   </tbody>
 </table>
