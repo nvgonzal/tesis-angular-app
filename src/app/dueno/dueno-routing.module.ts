@@ -9,6 +9,10 @@ const routes: Routes = [
         path: 'choferes',
         loadChildren: './piloto/piloto.module#PilotoModule'
       },
+      {
+        path: 'gruas',
+        loadChildren: './grua/grua.module#GruaModule'
+      }
     ]},
 
 ];
