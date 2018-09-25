@@ -14,7 +14,6 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import {DuenoModule} from './dueno/dueno.module';
 import {CommonsResourcesModule} from './commons/commons-resources.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import {SysAdminIntraModule} from './sys-admin-intra/sys-admin-intra.module';
 
 
 @NgModule({
@@ -31,7 +30,6 @@ import {SysAdminIntraModule} from './sys-admin-intra/sys-admin-intra.module';
     HttpClientModule,
     FormsModule,
     DuenoModule,
-    SysAdminIntraModule,
     CommonsResourcesModule,
     AppRoutingModule,
   ],

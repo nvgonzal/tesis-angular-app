@@ -21,7 +21,7 @@ export class PilotoListComponent implements OnInit {
   deletePiloto(id: number) {
     this.spinner.show();
     this.pilotoService.deletePiloto(id).subscribe(
-      res => {this.message = 'Piloto elimnado'; this.spinner.hide(); this.updateList(); },
+      res => {this.message = 'Piloto elimnado'; this.spinner.hide(); this.updateList();},
        res => {this.message = 'No se ha podido eliminar piloto'; this.spinner.hide(); }
     );
   }

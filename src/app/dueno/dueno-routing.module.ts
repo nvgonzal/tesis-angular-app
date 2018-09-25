@@ -6,9 +6,13 @@ const routes: Routes = [
   {path: 'dueno' , component : DuenoHomeComponent,
     children: [
       {
-        path: 'choferes',
+        path: '',
         loadChildren: './piloto/piloto.module#PilotoModule'
       },
+      {
+        path: '',
+        loadChildren: './grua/grua.module#GruaModule'
+      }
     ]},
 
 ];
