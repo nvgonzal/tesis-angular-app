@@ -7,6 +7,7 @@ import {DuenoHomeComponent} from './dueno-home/dueno-home.component';
 import {CommonsResourcesModule} from '../commons/commons-resources.module';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
+import {GruaModule} from './grua/grua.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import {BrowserModule} from '@angular/platform-browser';
     CommonsResourcesModule,
     BrowserModule,
     HttpClientModule,
+    GruaModule
   ],
   declarations: [
     DuenoHomeComponent,

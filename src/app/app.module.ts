@@ -14,6 +14,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import {DuenoModule} from './dueno/dueno.module';
 import {CommonsResourcesModule} from './commons/commons-resources.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { GruaHomeComponent } from './dueno/grua/grua-home.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RegisterComponent,
     HomeComponent,
     PageNotFoundComponent,
+    GruaHomeComponent,
   ],
   imports: [
     NgxSpinnerModule,
