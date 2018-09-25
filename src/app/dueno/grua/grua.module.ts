@@ -6,6 +6,7 @@ import { GruaEditComponent } from './grua-edit/grua-edit.component';
 import { GruaCreateComponent } from './grua-create/grua-create.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {FormsModule} from '@angular/forms';
+import { GruaHomeComponent} from './grua-home.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {FormsModule} from '@angular/forms';
   declarations: [
     GruaListComponent,
     GruaEditComponent,
-    GruaCreateComponent
+    GruaCreateComponent,
+    GruaHomeComponent,
   ]
 })
 export class GruaModule { }

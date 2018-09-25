@@ -1,0 +1,35 @@
+<ngx-spinner
+  bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-atom">
+  <p style="font-size: 20px; color: white">Cargando...</p>
+</ngx-spinner>
+<div class="container">
+  <h2>Ingresar piloto</h2>
+  <div *ngIf="errors">
+    <p>{{errors}}</p>
+  </div>
+  <form #registerForm="ngForm">
+    <h3>Datos de la empresa</h3>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" class="form-control" name="nombre" [(ngModel)]="empresa.nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="razon_social">Razon social</label>
+      <input id="razon_social" class="form-control" name="razon_social" [(ngModel)]="empresa.razon_social" required>
+    </div>
+    <div class="form-group">
+      <label for="rutEmpresa">Rut</label>
+      <input id="rutEmpresa" class="form-control" name="rutEmpresa" [(ngModel)]="empresa.rut" required>
+    </div>
+    <div class="form-group">
+      <label for="direccion">Direccion</label>
+      <input id="direccion" class="form-control" name="direccion" [(ngModel)]="empresa.direccion" required>
+    </div>
+    <div class="form-group">
+      <label for="cuenta_pago">Cuenta pagos</label>
+      <input id="cuenta_pago" class="form-control" name="cuenta_pago" [(ngModel)]="empresa.cuenta_pago" required>
+    </div>
+    <button type="submit" class="btn btn-danger" [disabled]="!registerForm.form.valid"
+            (click)="editarEmpresa()" >Editar empresa</button>
+  </form>
+</div>

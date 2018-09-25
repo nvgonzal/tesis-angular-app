@@ -30,7 +30,6 @@ export class GruaEditComponent implements OnInit {
   }
   ngOnInit() {
   }
-
   saveGrua() {
     this.spinner.show();
     this.gruaService.editGrua(this.grua.id, this.grua.patente, this.grua.tipo,

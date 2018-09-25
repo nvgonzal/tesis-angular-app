@@ -17,7 +17,7 @@ import {GruaModule} from './grua/grua.module';
     CommonsResourcesModule,
     BrowserModule,
     HttpClientModule,
-    GruaModule
+    GruaModule,
   ],
   declarations: [
     DuenoHomeComponent,
