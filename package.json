@@ -11,6 +11,8 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.5",
+    "@agm/snazzy-info-window": "^1.0.0-beta.5",
     "@angular/animations": "^6.0.2",
     "@angular/common": "^6.0.2",
     "@angular/compiler": "^6.0.2",
@@ -23,6 +25,7 @@
     "core-js": "^2.5.4",
     "ngx-spinner": "^6.1.2",
     "rxjs": "^6.0.0",
+    "snazzy-info-window": "^1.1.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
