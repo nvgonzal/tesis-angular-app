@@ -29,7 +29,7 @@ export class PilotoService {
       'telefono_fijo': fono
     }, httpOptions);
   }
-  deletePiloto(id: number){
+  deletePiloto(id: number) {
     return this.http.delete(`${this.url}/${id}`);
   }
 }
