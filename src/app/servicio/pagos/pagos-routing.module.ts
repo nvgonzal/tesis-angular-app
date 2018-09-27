@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {PagarPaypalComponent} from './pagar-paypal/pagar-paypal.component';
 
 const routes: Routes = [
-  {path: '/:id', component: PagarPaypalComponent}
+  {path: 'paypay/:id', component: PagarPaypalComponent}
 ];
 
 @NgModule({
