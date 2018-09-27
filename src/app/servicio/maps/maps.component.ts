@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MapaService} from '../../services/mapa.service';
 import {NgxSpinnerService} from 'ngx-spinner';
+import { Empresa} from '../../models/empresa';
 
 @Component({
   selector: 'app-maps',
@@ -13,27 +14,9 @@ export class MapsComponent implements OnInit {
   errors: any;
   currentLatitude: any;
   currentLongitude: any;
-
-  markers: marker[] = [
-    {
-      lat: -33.4831136,
-      lng: -70.5269067,
-      label: 'A',
-      draggable: false
-    },
-    {
-      lat: -33.477444,
-      lng: -70.516516,
-      label: 'B',
-      draggable: false
-    },
-    {
-      lat: -33.473215,
-      lng: -70.533323,
-      label: 'C',
-      draggable: true
-    }
-  ];
+  fakeLatitude = -36.827348;
+  fakeLongitude = -73.050255;
+  empresas: Empresa;
 
   constructor(private mapaService: MapaService, private spinner: NgxSpinnerService) {
     if (navigator) {
@@ -49,15 +32,18 @@ export class MapsComponent implements OnInit {
   }
 
   buscarGrua() {
-    console.log('hola')
-    this.mapaService.buscarGrua(this.currentLatitude, this.currentLongitude).subscribe(
-      res => this.onSuccess(res),
-      res => this.errorHandle(res));
+    console.log('hola');
+    this.mapaService.buscarGrua('-36.827348', '-73.050255').subscribe((data: Empresa) => {
+      this.empresas = data;
+      console.log(data);
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   onSuccess(res: any) {
     this.message = res.message;
-    console.log(res)
+    console.log(res);
     setTimeout(() => {
     }, 5000);
   }
@@ -68,10 +54,3 @@ export class MapsComponent implements OnInit {
 
 
 
-// just an interface for type safety.
-interface marker {
-  lat: number;
-  lng: number;
-  label?: string;
-  draggable: boolean;
-}

@@ -15,7 +15,7 @@ import {CommonsResourcesModule} from './commons/commons-resources.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {SysAdminIntraModule} from './sys-admin-intra/sys-admin-intra.module';
 import { AgmCoreModule } from '@agm/core';
-import {MapsModule} from './servicio/maps/maps.module';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +31,6 @@ import {MapsModule} from './servicio/maps/maps.module';
     HttpClientModule,
     FormsModule,
     DuenoModule,
-    MapsModule,
     SysAdminIntraModule,
     CommonsResourcesModule,
     AppRoutingModule,
