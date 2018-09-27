@@ -15,6 +15,7 @@ import {CommonsResourcesModule} from './commons/commons-resources.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {SysAdminIntraModule} from './sys-admin-intra/sys-admin-intra.module';
 import { AgmCoreModule } from '@agm/core';
+import {ServicioModule} from './servicio/servicio.module';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { AgmCoreModule } from '@agm/core';
     DuenoModule,
     SysAdminIntraModule,
     CommonsResourcesModule,
+    ServicioModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBxD9Rcgv2HpCsnjCNcCNUZEswZZYPm23s'
