@@ -3,7 +3,7 @@
   <p style="font-size: 20px; color: white">{{message}}</p>
 </ngx-spinner>
 <div class="container">
-  <h2>Ingresar vehiculo</h2>
+  <h2>Modificar grua</h2>
   <div *ngIf="errors">
     <p>{{errors}}</p>
   </div>
@@ -25,6 +25,6 @@
       <input id="color" class="form-control" name="color" [(ngModel)]="vehiculo.color" required>
     </div>
     <button type="submit" class="btn btn-danger fa fa-save" [disabled]="!registerForm.form.valid"
-            (click)="createVehiculo()" >Guardar vehiculo</button>
+            (click)="editVehiculo()" >Guardar vehiculo</button>
   </form>
 </div>

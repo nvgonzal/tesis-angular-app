@@ -16,6 +16,7 @@ import {CommonsResourcesModule} from './commons/commons-resources.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {SysAdminIntraModule} from './sys-admin-intra/sys-admin-intra.module';
 import {ServicioModule} from './servicio/servicio.module';
+import {ClienteIntraModule} from './cliente-intra/cliente-intra.module';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {ServicioModule} from './servicio/servicio.module';
     FormsModule,
     DuenoModule,
     SysAdminIntraModule,
+    ClienteIntraModule,
     CommonsResourcesModule,
     ServicioModule,
     AppRoutingModule,
