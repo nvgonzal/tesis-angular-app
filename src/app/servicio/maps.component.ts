@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MapaService} from '../../services/mapa.service';
+import { MapaService} from '../services/mapa.service';
 import {NgxSpinnerService} from 'ngx-spinner';
-import { Empresa} from '../../models/empresa';
+import { Empresa} from '../models/empresa';
 
 @Component({
   selector: 'app-maps',
