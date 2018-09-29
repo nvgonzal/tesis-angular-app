@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {SysAdminIntraModule} from './sys-admin-intra/sys-admin-intra.module';
 import {ServicioModule} from './servicio/servicio.module';
 import {ClienteIntraModule} from './cliente-intra/cliente-intra.module';
+import {StarRatingModule} from 'angular-star-rating';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {ClienteIntraModule} from './cliente-intra/cliente-intra.module';
     CommonsResourcesModule,
     ServicioModule,
     AppRoutingModule,
+    StarRatingModule.forRoot(),
   ],
   providers: [
     AuthGuard,
