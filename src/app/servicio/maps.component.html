@@ -1,0 +1,41 @@
+
+<agm-map
+  [latitude]="fakeLatitude"
+  [longitude]="fakeLongitude"
+  [zoom]="15"
+  [mapTypeControl]="true"
+  [disableDefaultUI]="false"
+  [streetViewControlOptions]="true"
+
+>
+  <agm-marker [latitude]="fakeLatitude" [longitude]="fakeLongitude"
+
+              >
+    <agm-info-window>
+      <pre style="background-color: yellow;">{{currentLongitude}}, {{currentLatitude}}</pre>
+      My Current Location
+    </agm-info-window>
+  </agm-marker>
+
+
+  <agm-marker
+    *ngFor="let mark of empresas"
+    [latitude]="mark.latitud"
+    [longitude]="mark.longitud"
+    [animation]="DROP"
+    [openInfoWindow]="true"
+
+  >
+    <agm-info-window
+
+    >
+
+      {{mark.nombre_empresa}}
+      {{mark.direccion}}
+      {{mark.valoracion}}
+
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
+
+<button class="btn btn-warning"  (click)="buscarGrua()">Buscar Gruas</button>
