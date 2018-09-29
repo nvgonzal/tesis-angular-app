@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +14,7 @@ import {DuenoModule} from './dueno/dueno.module';
 import {CommonsResourcesModule} from './commons/commons-resources.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {SysAdminIntraModule} from './sys-admin-intra/sys-admin-intra.module';
+import { AgmCoreModule } from '@agm/core';
 import {ServicioModule} from './servicio/servicio.module';
 import {ClienteIntraModule} from './cliente-intra/cliente-intra.module';
 import {StarRatingModule} from 'angular-star-rating';
@@ -39,6 +39,9 @@ import {StarRatingModule} from 'angular-star-rating';
     CommonsResourcesModule,
     ServicioModule,
     AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBxD9Rcgv2HpCsnjCNcCNUZEswZZYPm23s'
+    })
     StarRatingModule.forRoot(),
   ],
   providers: [
@@ -47,4 +50,4 @@ import {StarRatingModule} from 'angular-star-rating';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

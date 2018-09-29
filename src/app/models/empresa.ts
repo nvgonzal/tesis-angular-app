@@ -6,4 +6,6 @@ export class Empresa {
   valoracion: number;
   direccion: string;
   cuenta_pago: string;
+  latitud: string;
+  longitud: string;
 }
