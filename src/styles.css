@@ -5,3 +5,4 @@
 @import url(assets/css/sb-admin-2.css);
 @import url(assets/font-awesome/css/font-awesome.min.css);
 @import url(../node_modules/snazzy-info-window/dist/snazzy-info-window.css);
+@import '~css-star-rating/css/star-rating.css';

@@ -10,7 +10,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
   styleUrls: ['./empresa-detail.component.css']
 })
 export class EmpresaDetailComponent implements OnInit {
-  empresa: Empresa;
+  empresa: Empresa = new Empresa();
   id: number;
   errors: string;
 
