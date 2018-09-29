@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import { VehiculoListComponent } from './vehiculo-list/vehiculo-list.component';
 import { VehiculoEditComponent } from './vehiculo-edit/vehiculo-edit.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { VehiculoEditComponent } from './vehiculo-edit/vehiculo-edit.component';
     NgxSpinnerModule,
     FormsModule,
     VehiculoRoutingModule,
+    NgxPaginationModule,
   ],
   declarations: [
     VehiculoCreateComponent,

@@ -12,6 +12,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
 export class VehiculoListComponent implements OnInit {
   vehiculos$: Observable<Vehiculo[]>;
   message: string;
+  p = 1;
   constructor(private vehiculoService: VehiculoService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {

@@ -17,7 +17,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let vehiculo of vehiculos$ | async">
+  <tr *ngFor="let vehiculo of vehiculos$ | async | paginate: {itemsPerPage: 5, currentPage: p}">
     <th scope="col">{{vehiculo.id}}</th>
     <td>{{vehiculo.patente_vehiculo}}</td>
     <td>{{vehiculo.marca}}</td>
@@ -30,3 +30,6 @@
   </tr>
   </tbody>
 </table>
+<div class="center-all">
+  <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+</div>
