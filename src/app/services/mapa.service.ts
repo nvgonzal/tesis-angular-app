@@ -9,14 +9,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MapaService {
-
   data: any;
   private url =  environment.url + '/api/buscar';
   constructor(private http: HttpClient) { }
 
   public buscarGrua(latitud: string, longitud: string): Observable<any> {
-    console.log(latitud)
-    console.log(longitud)
   return this.http.post(this.url, {
     'latitud': latitud,
     'longitud': longitud,

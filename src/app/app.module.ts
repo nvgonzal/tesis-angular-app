@@ -39,10 +39,10 @@ import {StarRatingModule} from 'angular-star-rating';
     CommonsResourcesModule,
     ServicioModule,
     AppRoutingModule,
+    StarRatingModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBxD9Rcgv2HpCsnjCNcCNUZEswZZYPm23s'
-    })
-    StarRatingModule.forRoot(),
+    }),
   ],
   providers: [
     AuthGuard,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { MapaService} from '../services/mapa.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import { Empresa} from '../models/empresa';
@@ -9,7 +9,6 @@ import { Empresa} from '../models/empresa';
   styleUrls: ['./maps.component.css']
 })
 export class MapsComponent implements OnInit {
-  title = 'My first AGM project';
   message: string;
   errors: any;
   currentLatitude: any;
@@ -17,6 +16,8 @@ export class MapsComponent implements OnInit {
   fakeLatitude = -36.827348;
   fakeLongitude = -73.050255;
   empresas: Empresa;
+  @Output() public afterSelected = new EventEmitter<void>();
+  selectedEmpresa: Empresa;
 
   constructor(private mapaService: MapaService, private spinner: NgxSpinnerService) {
     if (navigator) {
@@ -29,16 +30,19 @@ export class MapsComponent implements OnInit {
 
   ngOnInit() {
     this.message = 'Buscando Gruas Cercanas';
+    this.buscarGrua();
   }
 
   buscarGrua() {
-    console.log('hola');
     this.mapaService.buscarGrua('-36.827348', '-73.050255').subscribe((data: Empresa) => {
       this.empresas = data;
-      console.log(data);
     }, (error) => {
-      console.log(error);
     });
+  }
+
+  pedirGrua(empresa: Empresa) {
+    this.selectedEmpresa = empresa;
+    this.afterSelected.next();
   }
 
   onSuccess(res: any) {

@@ -10,6 +10,10 @@ import {MapsComponent} from './maps.component';
 import { EvaluarChoferComponent } from './evaluar-chofer/evaluar-chofer.component';
 import {StarRatingModule} from 'angular-star-rating';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {ServicioLoaderDirective} from './servicio-loader.directive';
+import { PedirServicioComponent } from './pedir-servicio/pedir-servicio.component';
+import {FormsModule} from '@angular/forms';
+import { ServicioPagadoComponent } from './servicio-pagado/servicio-pagado.component';
 
 
 @NgModule({
@@ -22,12 +26,21 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     AgmSnazzyInfoWindowModule,
     StarRatingModule.forChild(),
     NgxSpinnerModule,
+    FormsModule,
   ],
   declarations: [
     ServicioHomeComponent,
+    ServicioLoaderDirective,
+    MapsComponent,
+    EvaluarChoferComponent,
+    PedirServicioComponent,
+    ServicioPagadoComponent,
+  ],
+  entryComponents: [
     MapsComponent,
     ServicioHomeComponent,
     EvaluarChoferComponent,
+    PedirServicioComponent,
   ]
 })
 export class ServicioModule { }

@@ -27,8 +27,7 @@
               "src/assets/bootstrap/css/bootstrap.min.css",
               "src/assets/metisMenu/metisMenu.min.css",
               "src/assets/css/sb-admin-2.css",
-              "src/assets/font-awesome/css/font-awesome.min.css",
-
+              "src/assets/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": [
               "src/assets/jquery/jquery.min.js",

@@ -13,6 +13,9 @@ import {PagarPaypalComponent} from './pagar-paypal/pagar-paypal.component';
   ],
   declarations: [
     PagarPaypalComponent,
+  ],
+  entryComponents: [
+    PagarPaypalComponent,
   ]
 })
 export class PagosModule { }

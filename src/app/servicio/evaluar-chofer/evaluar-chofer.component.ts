@@ -4,7 +4,7 @@ import {EvaluacionService} from '../../services/evaluacion.service';
 import {Empresa} from '../../models/empresa';
 import {User} from '../../models/user';
 import {ActivatedRoute, Router} from '@angular/router';
-import {NgxSpinnerModule, NgxSpinnerService} from 'ngx-spinner';
+import {Servicio} from '../../models/servicio';
 
 @Component({
   selector: 'app-evaluar-chofer',
@@ -18,15 +18,15 @@ export class EvaluarChoferComponent implements OnInit {
   user: User = new User();
   message: string;
   errors: string;
+  @Input() servicio: Servicio;
   onRatingChange = ($event: RatingChangeEvent) => {
     this.rating = $event.rating;
   };
   constructor(private evaluacionService: EvaluacionService,
-              private activatedRoute: ActivatedRoute,
               private spinner: NgxSpinnerService,
               private router: Router) { }
   ngOnInit() {
-    this.id = +this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = this.servicio.id;
     this.evaluacionService.getChoferInfo(this.id).subscribe( res => {
       this.empresa = res.empresa;
       this.user = res.chofer;

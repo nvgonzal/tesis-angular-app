@@ -1,0 +1,52 @@
+<ngx-spinner
+  bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-atom">
+  <p style="font-size: 20px; color: white">{{message}}</p>
+</ngx-spinner>
+<div class="container">
+  <h2>Pedir grua</h2>
+  <div *ngIf="errors" class="alert alert-danger" role="alert" style="max-width: 18rem;">
+      <p>{{errors}}</p>
+  </div>
+  <form #servicioForm="ngForm">
+    <div class="form-group">
+      <label for="vehiculo">Selecciona el vehiculo</label>
+      <select id="vehiculo" name="vehiculo" class="form-control col-sm-12 col-xs-12" [(ngModel)]="servicio.id_vehiculo" required>
+        <option *ngFor="let vehiculo of vehiculos$ | async" value="{{vehiculo.id}}">
+          {{vehiculo.marca}} {{vehiculo.modelo}}, Patente {{vehiculo.patente_vehiculo}}, Color {{vehiculo.color}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="descripcion">Describe el problema de tu vehiculo</label>
+      <textarea id="descripcion" name="descripcion" class="form-control" required [(ngModel)]="servicio.descripcion"></textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success" [disabled]="!servicioForm.form.valid"
+            (click)="crearServicio()" >Pedir grua</button>
+    </div>
+  </form>
+</div>
+
+
+<label>Selecciona el lugar al que vas.</label>
+<agm-map
+  [latitude]="currentLatitude"
+  [longitude]="currentLongitude"
+  [zoom]="15"
+  [mapTypeControl]="true"
+  [disableDefaultUI]="false"
+  [streetViewControlOptions]="true"
+  (mapClick)="onMapClick($event)">
+  <agm-marker *ngIf="fullLoad" [latitude]="currentLatitude" [longitude]="currentLatitude">
+    <agm-info-window>
+      Posicion actual
+    </agm-info-window>
+  </agm-marker>
+  <agm-marker *ngIf="selectedPoint" [latitude]="selectedLatitude" [longitude]="selectedLongitude">
+
+      <agm-info-window>
+        Posicion de llegada
+      </agm-info-window>
+
+  </agm-marker>
+</agm-map>

@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PagosService} from '../../../services/pagos.service';
 import {InfoPago} from '../../../models/info-pago';
-import {ActivatedRoute, ParamMap} from '@angular/router';
-import {switchMap} from 'rxjs/internal/operators';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {PaypalResponse} from '../../../models/paypal-response';
-import {ObservableInput} from 'rxjs/index';
+import {Servicio} from '../../../models/servicio';
 
 @Component({
   selector: 'app-pagar-paypal',
@@ -14,16 +12,16 @@ import {ObservableInput} from 'rxjs/index';
 })
 export class PagarPaypalComponent implements OnInit {
   success: boolean;
-  informacionPago: InfoPago;
+  informacionPago: InfoPago = new InfoPago();
   id: number;
   payPalResponse: PaypalResponse;
+  @Input() servicio: Servicio;
 
   constructor(private pagosService: PagosService,
-              private activatedRoute: ActivatedRoute,
               private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.id = +this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = this.servicio.id;
     this.pagosService.getMonto(this.id).subscribe( res => this.informacionPago = res);
   }
   makePay() {

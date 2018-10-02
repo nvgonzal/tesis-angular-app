@@ -6,8 +6,10 @@
   <h3>Tu servicio solicitado ha sido tomado.</h3>
   <p><b>Empresa:</b>{{informacionPago.nombre_empresa}}</p>
   <p><b>Direccion:</b>{{informacionPago.direccion}}</p>
-  <h3>Total a pagar</h3>
-  <p>{{informacionPago.monto}}</p>
+  <h3>Detalle del pago</h3>
+  <p>Precio en pesos chilenos: {{informacionPago.monto}}</p>
+  <p>Valor dolar: {{informacionPago.valor_dolar}}</p>
+  <p>Precio final en dolares: {{informacionPago.precio_final}}</p>
   <h3>Cuenta a que realizaras el pago</h3>
   <p>{{informacionPago.cuenta_pago}}</p>
   <button (click)="makePay()">Confirmar pago</button>

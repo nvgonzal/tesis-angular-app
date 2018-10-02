@@ -1,0 +1,7 @@
+<div *ngIf="!finalizado">
+  <h4>La grua va en camino.</h4>
+  <p>El servicio ha sido pagado y la grua va en camino.</p>
+  <p>Preciona el boton cuando el servicio termine para evaluar el servicio.</p>
+  <button class="btn btn-success" (click)="finalizarServicio()">Finalizar servicio</button>
+</div>
+<ng-template appServicioLoader></ng-template>
