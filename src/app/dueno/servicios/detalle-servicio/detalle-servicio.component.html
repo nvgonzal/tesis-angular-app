@@ -1,0 +1,41 @@
+<button class="btn btn-primary" (click)="goBack.next()">
+  Volver
+</button>
+<div class="jumbotron">
+  <h3>Detalle del servicio</h3>
+  <ul>
+    <li><b>Fecha:</b> {{servicio.created_at.fecha | date:"dd/mm/yyyy"}} <i class="label label-primary">{{servicio.created_at.human}}</i></li>
+    <li><b>Descripcion cliente:</b> {{servicio.descripcion}}</li>
+    <li><b>Evaluacion cliente:</b> {{servicio.evaluacion_cliente}}</li>
+    <li><b>Descripcion chofer:</b> {{servicio.descripcion_chofer}}</li>
+    <li><b>Evaluacion chofer:</b> {{servicio.evaluacion_empresa}}</li>
+    <li><b>Precio en pesos:</b> {{servicio.precio_pesos | currency}}</li>
+    <li><b>Precio del dolar el dia del servicio:</b> {{servicio.precio_dolar | currency}}</li>
+    <li><b>Precio final en dolares:</b> {{servicio.precio_final | currency}}</li>
+  </ul>
+</div>
+<div class="jumbotron">
+  <h3>Detalle del vehiculo</h3>
+  <ul>
+    <li><b>Marca:</b> {{servicio.vehiculo_info.marca}}</li>
+    <li><b>Modelo:</b> {{servicio.vehiculo_info.modelo}}</li>
+    <li><b>Color:</b> {{servicio.vehiculo_info.color}}</li>
+  </ul>
+</div>
+<div class="jumbotron">
+  <h3>Detalle piloto</h3>
+  <ul>
+    <li><b>Nombre:</b> {{servicio.chofer_info.nombre_completo}}</li>
+    <li><b>Rut:</b> {{servicio.chofer_info.rut}}</li>
+  </ul>
+</div>
+<div class="jumbotron">
+  <h3>Detalle cliente</h3>
+  <ul>
+    <li><b>Nombre:</b> {{servicio.cliente_info.nombre_completo}}</li>
+    <li><b>Rut:</b> {{servicio.cliente_info.rut}}</li>
+    <li><b>Email:</b> {{servicio.cliente_info.email}}</li>
+    <li><b>Telefono celular:</b> {{servicio.cliente_info.celular}}</li>
+    <li><b>Telefono fijo:</b> {{servicio.cliente_info.telefono_fijo}}</li>
+  </ul>
+</div>

@@ -27,4 +27,10 @@ export class ServicioGruaService {
   getServicioById(id: number): Observable<any> {
     return this.http.get(`${this.url}/${id}`, httpOptions);
   }
+  isFinalizable(id: number): Observable<any> {
+    return this.http.get(`${this.url}/${id}/finalizable`, httpOptions);
+  }
+  getServiceRecord(): Observable<any> {
+    return this.http.get(this.url + 's/historico', httpOptions);
+  }
 }

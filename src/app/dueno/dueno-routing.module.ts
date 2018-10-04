@@ -12,6 +12,10 @@ const routes: Routes = [
       {
         path: 'gruas',
         loadChildren: './grua/grua.module#GruaModule'
+      },
+      {
+        path: 'servicios',
+        loadChildren: './servicios/servicios.module#ServiciosModule',
       }
     ]},
 

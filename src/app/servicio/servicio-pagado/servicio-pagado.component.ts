@@ -16,6 +16,7 @@ export class ServicioPagadoComponent implements OnInit {
   finalizado: boolean;
   servicio: Servicio;
   id: number;
+  errors: string;
   constructor(private servicioGruaService: ServicioGruaService,
               private activatedRoute: ActivatedRoute,
               private componentFactoryResolver: ComponentFactoryResolver) { }
@@ -25,12 +26,21 @@ export class ServicioPagadoComponent implements OnInit {
     this.servicioGruaService.getServicioById(this.id).subscribe(res => this.servicio = res);
   }
   finalizarServicio(): void {
-    const factory = this.componentFactoryResolver.resolveComponentFactory(EvaluarChoferComponent);
-    const viewContainer = this.loader.viewContainerRef;
-    viewContainer.clear();
-    this.evaluarChoferRef = viewContainer.createComponent(factory);
-    this.finalizado = true;
-    (<EvaluarChoferComponent>this.evaluarChoferRef.instance).servicio = this.servicio;
+    this.servicioGruaService.isFinalizable(this.id).subscribe(
+      res => {
+        this.finalizado = res;
+        this.pintarVista();
+      });
   }
-
+  pintarVista() {
+    if (this.finalizado) {
+      const factory = this.componentFactoryResolver.resolveComponentFactory(EvaluarChoferComponent);
+      const viewContainer = this.loader.viewContainerRef;
+      viewContainer.clear();
+      this.evaluarChoferRef = viewContainer.createComponent(factory);
+      (<EvaluarChoferComponent>this.evaluarChoferRef.instance).servicio = this.servicio;
+    } else {
+      this.errors = 'El servicio aun no ha sido finalizado por el chofer.';
+    }
+  }
 }

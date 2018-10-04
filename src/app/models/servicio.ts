@@ -1,3 +1,6 @@
+import {User} from './user';
+import {Vehiculo} from './vehiculo';
+
 export class Servicio {
   public id: number;
   public id_empresa: number;
@@ -8,9 +11,15 @@ export class Servicio {
   public ubicacion: string;
   public destino: string;
   public precio_final: number;
+  public precio_pesos: number;
+  public precio_dolar: number;
   public estado: string;
   public descripcion: string;
   public descripcion_chofer: string;
   public evaluacion_cliente: number;
   public evaluacion_empresa: number;
+  public chofer_info: User;
+  public vehiculo_info: Vehiculo;
+  public cliente_info: User;
+  public created_at: any;
 }

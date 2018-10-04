@@ -1,0 +1,35 @@
+<div *ngIf="!selectedServicio">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Fecha</th>
+      <th>Descripcion cliente</th>
+      <th>Descripcion chofer</th>
+      <th>Evaluacion cliente</th>
+      <th>Evaluacion chofer</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let servicio of servicios$ | async | paginate: {itemsPerPage: 10, currentPage: p}">
+      <th scope="col">{{servicio.id}}</th>
+      <td title="{{servicio.created_at.human}}">{{servicio.created_at.fecha | date}}</td>
+      <td>{{servicio.descripcion}}</td>
+      <td>{{servicio.descripcion_chofer}}</td>
+      <td>{{servicio.evaluacion_cliente}}</td>
+      <td>{{servicio.evaluacion_empresa}}</td>
+      <td>
+        <button (click)="verDetalle(servicio)" class="btn btn-success fa fa-search"></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="center-all">
+    <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+  </div>
+</div>
+
+<div *ngIf="selectedServicio">
+  <app-detalle-servicio [servicio]="selectedServicio" (goBack)="retornar()"></app-detalle-servicio>
+</div>
