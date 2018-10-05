@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {DuenoHomeComponent} from './dueno-home/dueno-home.component';
+import {AuthGuard} from '../guards/auth.guard';
 
 const routes: Routes = [
-  {path: 'dueno' , component : DuenoHomeComponent,
+  {path: '' , component : DuenoHomeComponent, canActivate: [AuthGuard],
     children: [
       {
         path: 'choferes',

@@ -33,12 +33,8 @@ import {StarRatingModule} from 'angular-star-rating';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    DuenoModule,
-    SysAdminIntraModule,
-    ClienteIntraModule,
-    CommonsResourcesModule,
-    ServicioModule,
     AppRoutingModule,
+    CommonsResourcesModule,
     StarRatingModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBxD9Rcgv2HpCsnjCNcCNUZEswZZYPm23s'

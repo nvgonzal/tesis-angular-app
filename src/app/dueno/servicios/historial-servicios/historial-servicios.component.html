@@ -14,7 +14,7 @@
     <tbody>
     <tr *ngFor="let servicio of servicios$ | async | paginate: {itemsPerPage: 10, currentPage: p}">
       <th scope="col">{{servicio.id}}</th>
-      <td title="{{servicio.created_at.human}}">{{servicio.created_at.fecha | date}}</td>
+      <td title="{{servicio.created_at.human}}">{{servicio.created_at.fecha | date:"short"}}</td>
       <td>{{servicio.descripcion}}</td>
       <td>{{servicio.descripcion_chofer}}</td>
       <td>{{servicio.evaluacion_cliente}}</td>
