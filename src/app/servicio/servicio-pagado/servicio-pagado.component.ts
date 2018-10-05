@@ -4,6 +4,8 @@ import {Servicio} from '../../models/servicio';
 import {ActivatedRoute} from '@angular/router';
 import {EvaluarChoferComponent} from '../evaluar-chofer/evaluar-chofer.component';
 import {ServicioLoaderDirective} from '../servicio-loader.directive';
+import {environment} from '../../../environments/environment';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-servicio-pagado',
@@ -11,6 +13,7 @@ import {ServicioLoaderDirective} from '../servicio-loader.directive';
   styleUrls: ['./servicio-pagado.component.css']
 })
 export class ServicioPagadoComponent implements OnInit {
+  appName: string = environment.appName;
   @ViewChild(ServicioLoaderDirective) loader: ServicioLoaderDirective;
   private evaluarChoferRef: ComponentRef<EvaluarChoferComponent>;
   finalizado: boolean;
@@ -19,9 +22,11 @@ export class ServicioPagadoComponent implements OnInit {
   errors: string;
   constructor(private servicioGruaService: ServicioGruaService,
               private activatedRoute: ActivatedRoute,
-              private componentFactoryResolver: ComponentFactoryResolver) { }
+              private componentFactoryResolver: ComponentFactoryResolver,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Esperando grua - '+ this.appName);
     this.id = +this.activatedRoute.snapshot.paramMap.get('id');
     this.servicioGruaService.getServicioById(this.id).subscribe(res => this.servicio = res);
   }

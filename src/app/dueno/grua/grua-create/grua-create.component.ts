@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {GruaService} from '../../../services/grua.service';
 import {NgxSpinnerModule, NgxSpinnerService} from 'ngx-spinner';
 import {Router} from '@angular/router';
+import {environment} from '../../../../environments/environment';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-grua-create',
@@ -9,15 +11,20 @@ import {Router} from '@angular/router';
   styles: []
 })
 export class GruaCreateComponent implements OnInit {
+  appName: string = environment.appName;
   message: string;
   errors: any;
   patente: string;
   tipo: string;
   marca: string;
   modelo: string;
-  constructor(private gruaService: GruaService, private spinner: NgxSpinnerService, private router: Router) { }
+  constructor(private gruaService: GruaService,
+              private spinner: NgxSpinnerService,
+              private router: Router,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Registrar grua - ' + this.appName);
     this.message = 'Cargando...';
   }
 

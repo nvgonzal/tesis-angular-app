@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {GruaService} from '../../../services/grua.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import { Grua} from '../../../models/grua';
+import {environment} from '../../../../environments/environment';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-grua-edit',
@@ -10,25 +12,26 @@ import { Grua} from '../../../models/grua';
   styles: []
 })
 export class GruaEditComponent implements OnInit {
+  appName: string = environment.appName;
   message: string;
   errors: any;
   grua: Grua;
   data: any;
   id: number;
   constructor(private activatedRoute: ActivatedRoute, private gruaService: GruaService,
-              private spinner: NgxSpinnerService, private router: Router) {
+              private spinner: NgxSpinnerService, private router: Router,
+              private title: Title) {
+  }
+  ngOnInit() {
+    this.title.setTitle('Editar grua - ' + this.appName);
     this.id = this.activatedRoute.snapshot.params['id'];
     if (this.id) {
       this.gruaService.getGruasById(this.id).subscribe((data: Grua) => {
         this.grua = data;
-        console.log(data);
       }, (error) => {
         console.log(error);
       });
     }
-
-  }
-  ngOnInit() {
   }
 
   saveGrua() {

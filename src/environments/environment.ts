@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url: 'http://tesis-backend.web'
+  url: 'http://tesis-backend.web',
+  appName: 'TesisUBB',
 };
 
 /*

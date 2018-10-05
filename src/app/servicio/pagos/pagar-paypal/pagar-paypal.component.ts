@@ -4,6 +4,8 @@ import {InfoPago} from '../../../models/info-pago';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {PaypalResponse} from '../../../models/paypal-response';
 import {Servicio} from '../../../models/servicio';
+import {Title} from '@angular/platform-browser';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-pagar-paypal',
@@ -11,6 +13,7 @@ import {Servicio} from '../../../models/servicio';
   styleUrls: ['./pagar-paypal.component.css']
 })
 export class PagarPaypalComponent implements OnInit {
+  appName: string = environment.appName;
   success: boolean;
   informacionPago: InfoPago = new InfoPago();
   id: number;
@@ -18,9 +21,11 @@ export class PagarPaypalComponent implements OnInit {
   @Input() servicio: Servicio;
 
   constructor(private pagosService: PagosService,
-              private spinner: NgxSpinnerService) { }
+              private spinner: NgxSpinnerService,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Pagar servicio - ' + this.appName);
     this.id = this.servicio.id;
     this.pagosService.getMonto(this.id).subscribe( res => this.informacionPago = res);
   }

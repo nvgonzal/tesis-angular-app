@@ -6,6 +6,8 @@ import {Servicio} from '../../models/servicio';
 import {PedirServicioComponent} from '../pedir-servicio/pedir-servicio.component';
 import {PagarPaypalComponent} from '../pagos/pagar-paypal/pagar-paypal.component';
 import {ServicioGruaService} from '../../services/servicio-grua.service';
+import {environment} from '../../../environments/environment';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-servicio-home',
@@ -13,6 +15,7 @@ import {ServicioGruaService} from '../../services/servicio-grua.service';
   styleUrls: ['./servicio-home.component.css']
 })
 export class ServicioHomeComponent implements OnInit {
+  appName: string = environment.appName;
   @ViewChild(ServicioLoaderDirective) loader: ServicioLoaderDirective;
   private mapsComponentRef: ComponentRef<MapsComponent>;
   private pedirServicioRef: ComponentRef<PedirServicioComponent>;
@@ -23,9 +26,11 @@ export class ServicioHomeComponent implements OnInit {
   currentLongitude: number;
   waitingPrice: boolean;
   constructor(private componentFactoryResolver: ComponentFactoryResolver,
-              private servicioGruaService: ServicioGruaService) { }
+              private servicioGruaService: ServicioGruaService,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Pedir grua - ' + this.appName);
     this.loadMap();
   }
 

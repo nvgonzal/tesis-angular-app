@@ -3,6 +3,7 @@ import {Vehiculo} from '../../../models/vehiculo';
 import {Observable} from 'rxjs/index';
 import {VehiculoService} from '../../../services/vehiculo.service';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-vehiculo-list',
@@ -13,9 +14,12 @@ export class VehiculoListComponent implements OnInit {
   vehiculos$: Observable<Vehiculo[]>;
   message: string;
   p = 1;
-  constructor(private vehiculoService: VehiculoService, private spinner: NgxSpinnerService) { }
+  constructor(private vehiculoService: VehiculoService,
+              private spinner: NgxSpinnerService,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Lista de vehiculos');
     this.updateList();
   }
   deleteGrua(id: number) {

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {SysAdminHomeComponent} from './sys-admin-home/sys-admin-home.component';
+import {AuthGuard} from '../guards/auth.guard';
 
 const routes: Routes = [
-  {path: 'sysadmin', component: SysAdminHomeComponent,
+  {path: '', component: SysAdminHomeComponent, canActivate: [AuthGuard],
     children: [
       {
         path: 'empresas',

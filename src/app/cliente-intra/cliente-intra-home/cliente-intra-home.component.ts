@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Title} from '@angular/platform-browser';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-cliente-intra-home',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cliente-intra-home.component.css']
 })
 export class ClienteIntraHomeComponent implements OnInit {
+  appName: string = environment.appName;
 
-  constructor() { }
+  constructor(private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Inicio cliente - ' + this.appName);
   }
 
 }

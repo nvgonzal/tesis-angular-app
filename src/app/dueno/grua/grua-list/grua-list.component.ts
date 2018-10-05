@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable} from 'rxjs';
 import { GruaService} from '../../../services/grua.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { User} from '../../../models/user';
+import {environment} from '../../../../environments/environment';
+import {Grua} from '../../../models/grua';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-grua-list',
@@ -10,11 +12,15 @@ import { User} from '../../../models/user';
   styles: []
 })
 export class GruaListComponent implements OnInit {
-  gruas$: Observable<User[]>;
+  appName: string = environment.appName;
+  gruas$: Observable<Grua[]>;
   message: string;
-  constructor(private gruaService: GruaService, private spinner: NgxSpinnerService) { }
+  constructor(private gruaService: GruaService,
+              private spinner: NgxSpinnerService,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Lista de gruas - ' + this.appName);
     this.updateList();
   }
   deleteGrua(id: number) {

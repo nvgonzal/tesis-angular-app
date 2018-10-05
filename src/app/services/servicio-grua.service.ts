@@ -21,14 +21,14 @@ export class ServicioGruaService {
       'descripcion': servicio.descripcion,
     }, httpOptions);
   }
-  isPayable(id: number): Observable<any> {
-    return this.http.get(`${this.url}/payable/${id}`, httpOptions);
+  isPayable(id: number): Observable<boolean> {
+    return this.http.get<boolean>(`${this.url}/payable/${id}`, httpOptions);
   }
-  getServicioById(id: number): Observable<any> {
-    return this.http.get(`${this.url}/${id}`, httpOptions);
+  getServicioById(id: number): Observable<Servicio> {
+    return this.http.get<Servicio>(`${this.url}/${id}`, httpOptions);
   }
-  isFinalizable(id: number): Observable<any> {
-    return this.http.get(`${this.url}/${id}/finalizable`, httpOptions);
+  isFinalizable(id: number): Observable<boolean> {
+    return this.http.get<boolean>(`${this.url}/${id}/finalizable`, httpOptions);
   }
   getServiceRecord(): Observable<any> {
     return this.http.get(this.url + 's/historico', httpOptions);

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {environment} from '../../../environments/environment';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dueno-home',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class DuenoHomeComponent implements OnInit {
+  appName: string = environment.appName;
 
-  constructor() { }
+  constructor(private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Inicio dueño - ' + this.appName);
   }
 
 }

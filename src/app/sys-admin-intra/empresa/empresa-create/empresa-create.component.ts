@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {EmpresaService} from '../../../services/empresa.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {Router} from '@angular/router';
+import {environment} from '../../../../environments/environment';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-empresa-create',
@@ -9,6 +11,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./empresa-create.component.css']
 })
 export class EmpresaCreateComponent implements OnInit {
+  appName: string = environment.appName;
   message: string;
   errors: any;
   userEmail: string;
@@ -25,9 +28,11 @@ export class EmpresaCreateComponent implements OnInit {
   empresaCuentaPago: string;
   constructor(private empresaService: EmpresaService,
               private spinner: NgxSpinnerService,
-              private router: Router) { }
+              private router: Router,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Ingresar empresa - ' + this.appName);
   }
 
   createEmpresa() {

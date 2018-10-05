@@ -6,6 +6,8 @@ import {User} from '../../models/user';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Servicio} from '../../models/servicio';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {environment} from '../../../environments/environment';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-evaluar-chofer',
@@ -13,6 +15,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
   styleUrls: ['./evaluar-chofer.component.css']
 })
 export class EvaluarChoferComponent implements OnInit {
+  appName: string = environment.appName;
   rating: number;
   id: number;
   empresa: Empresa = new Empresa();
@@ -25,8 +28,10 @@ export class EvaluarChoferComponent implements OnInit {
   };
   constructor(private evaluacionService: EvaluacionService,
               private spinner: NgxSpinnerService,
-              private router: Router) { }
+              private router: Router,
+              private title: Title) { }
   ngOnInit() {
+    this.title.setTitle('Evaluar chofer - ' + this.appName);
     this.id = this.servicio.id;
     this.evaluacionService.getChoferInfo(this.id).subscribe( res => {
       this.empresa = res.empresa;

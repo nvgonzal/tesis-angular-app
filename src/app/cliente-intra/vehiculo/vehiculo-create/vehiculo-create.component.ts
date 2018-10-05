@@ -3,6 +3,8 @@ import {Vehiculo} from '../../../models/vehiculo';
 import {VehiculoService} from '../../../services/vehiculo.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {Router} from '@angular/router';
+import {environment} from '../../../../environments/environment';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-vehiculo-create',
@@ -10,14 +12,17 @@ import {Router} from '@angular/router';
   styleUrls: ['./vehiculo-create.component.css']
 })
 export class VehiculoCreateComponent implements OnInit {
+  appName: string = environment.appName;
   vehiculo: Vehiculo = new Vehiculo();
   message: string;
   errors: string;
   constructor(private vehiculoService: VehiculoService,
               private spinner: NgxSpinnerService,
-              private router: Router) { }
+              private router: Router,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Crear nuevo vehiculo - ' + this.appName);
   }
   createVehiculo() {
     this.spinner.show();

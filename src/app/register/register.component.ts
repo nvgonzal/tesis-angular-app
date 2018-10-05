@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AccountService} from '../services/account.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +11,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  appName: string = environment.appName;
   message: string;
   errors: any;
   userEmail: string;
@@ -21,9 +24,11 @@ export class RegisterComponent implements OnInit {
   userFono: string;
   constructor(private accountService: AccountService,
               private spinner: NgxSpinnerService,
-              private router: Router) { }
+              private router: Router,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Registrar cuenta - ' + this.appName);
   }
   submit() {
     this.message = 'Cargando...';

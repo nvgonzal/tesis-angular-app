@@ -3,6 +3,8 @@ import {Observable} from 'rxjs/index';
 import {Empresa} from '../../../models/empresa';
 import {EmpresaService} from '../../../services/empresa.service';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {environment} from '../../../../environments/environment';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-empresa-list',
@@ -10,12 +12,15 @@ import {NgxSpinnerService} from 'ngx-spinner';
   styleUrls: ['./empresa-list.component.css']
 })
 export class EmpresaListComponent implements OnInit {
+  appName: string = environment.appName;
   empresas$: Observable<Empresa[]>;
   message: string;
   constructor(private empresaService: EmpresaService,
-              private spinner: NgxSpinnerService) { }
+              private spinner: NgxSpinnerService,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Lista de empresas - ' + this.appName);
     this.updateList();
   }
   updateList(): void {

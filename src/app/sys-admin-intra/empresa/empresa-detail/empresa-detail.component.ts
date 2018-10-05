@@ -3,6 +3,8 @@ import {Empresa} from '../../../models/empresa';
 import {EmpresaService} from '../../../services/empresa.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {Title} from '@angular/platform-browser';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-empresa-detail',
@@ -10,6 +12,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
   styleUrls: ['./empresa-detail.component.css']
 })
 export class EmpresaDetailComponent implements OnInit {
+  appName: string = environment.appName;
   empresa: Empresa = new Empresa();
   id: number;
   errors: string;
@@ -17,9 +20,11 @@ export class EmpresaDetailComponent implements OnInit {
   constructor(private empresaService: EmpresaService,
               private route: ActivatedRoute,
               private spinner: NgxSpinnerService,
-              private router: Router) { }
+              private router: Router,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Editar empresa - ' + this.appName);
     this.getEmpresa();
   }
   getEmpresa() {
