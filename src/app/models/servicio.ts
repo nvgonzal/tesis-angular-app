@@ -1,5 +1,7 @@
 import {User} from './user';
 import {Vehiculo} from './vehiculo';
+import {FotoDano} from './foto-dano';
+import {Grua} from './grua';
 
 export class Servicio {
   public id: number;
@@ -21,5 +23,7 @@ export class Servicio {
   public chofer_info: User;
   public vehiculo_info: Vehiculo;
   public cliente_info: User;
+  public fotos_danos: FotoDano[];
+  public grua_info: Grua;
   public created_at: any;
 }

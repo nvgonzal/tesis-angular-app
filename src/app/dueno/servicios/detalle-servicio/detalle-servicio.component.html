@@ -32,6 +32,18 @@
         <li><b>Marca:</b> {{servicio.vehiculo_info.marca}}</li>
         <li><b>Modelo:</b> {{servicio.vehiculo_info.modelo}}</li>
         <li><b>Color:</b> {{servicio.vehiculo_info.color}}</li>
+        <li><b>Patente:</b> {{servicio.vehiculo_info.patente_vehiculo}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading"><h3 class="panel-title">Detalle del grua</h3></div>
+    <div class="panel-body">
+      <ul class="detalle_servicio">
+        <li><b>Marca:</b> {{servicio.grua_info.marca}}</li>
+        <li><b>Modelo:</b> {{servicio.grua_info.modelo}}</li>
+        <li><b>Color:</b> {{servicio.grua_info.tipo | titlecase}}</li>
+        <li><b>Patente:</b> {{servicio.grua_info.patente}}</li>
       </ul>
     </div>
   </div>
@@ -54,6 +66,12 @@
         <li><b>Telefono celular:</b> {{servicio.cliente_info.celular}}</li>
         <li><b>Telefono fijo:</b> {{servicio.cliente_info.telefono_fijo}}</li>
       </ul>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading"><h3 class="panel-title">Fotos del vehiculo</h3></div>
+    <div class="panel-body">
+      <img *ngFor="let foto_dano of servicio.fotos_danos" src="{{foto_dano.url}}" class="img-responsive img-rounded col-md-6 col-sm-12 col-xs-12">
     </div>
   </div>
 </div>
