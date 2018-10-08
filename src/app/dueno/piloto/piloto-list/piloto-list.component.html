@@ -2,7 +2,7 @@
   bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-atom">
   <p style="font-size: 20px; color: white">Cargando...</p>
 </ngx-spinner>
-<div *ngIf="message">
+<div *ngIf="message" class="alert alert-warning" role="alert">
 {{message}}
 </div>
 <table class="table">
@@ -14,6 +14,7 @@
     <th>Email</th>
     <th>Telefono fijo</th>
     <th>Celular</th>
+    <th>Acciones</th>
   </tr>
   </thead>
   <tbody>
@@ -24,7 +25,7 @@
     <td>{{piloto.email}}</td>
     <td>{{piloto.telefono_fijo}}</td>
     <td>{{piloto.celular}}</td>
-    <td><button (click)="deletePiloto(piloto.id)">x</button></td>
+    <td><button title="Borrar piloto" class="btn btn-danger fa fa-trash" (click)="deletePiloto(piloto.id)"></button></td>
   </tr>
   </tbody>
 </table>

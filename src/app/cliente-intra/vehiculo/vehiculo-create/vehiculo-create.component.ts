@@ -38,7 +38,7 @@ export class VehiculoCreateComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
       this.router.navigateByUrl('/cliente/vehiculos/list');
-    }, 5000);
+    }, 3900);
   }
   errorHandle(res: any) {
     this.errors = res.error.error;

@@ -15,13 +15,6 @@ export class PilotoCreateComponent implements OnInit {
   appName: string = environment.appName;
   message: string;
   errors: any;
-  userEmail: string;
-  userNombres: string;
-  userApellidoP: string;
-  userApellidoM: string;
-  userRut: string;
-  userCelular: string;
-  userFono: string;
   user: User = new User();
   constructor(private pilotoService: PilotoService,
               private spinner: NgxSpinnerService,
@@ -45,7 +38,7 @@ export class PilotoCreateComponent implements OnInit {
       this.router.navigateByUrl('/dueno/choferes/list');
     }, 5000);
   }
-  errorHandle(res: any) {
+  errorHandle(res) {
     this.errors = res.error.error;
     this.spinner.hide();
   }

@@ -22,7 +22,7 @@ export class PilotoService {
       'email': user.email,
       'nombre': user.nombre,
       'apellido_paterno': user.apellido_paterno,
-      'apelldio_materno': user.apellido_materno,
+      'apellido_materno': user.apellido_materno,
       'rut': user.rut,
       'celular': user.celular,
       'telefono_fijo': user.telefono_fijo
