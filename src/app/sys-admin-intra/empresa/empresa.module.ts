@@ -7,9 +7,11 @@ import { EmpresaListComponent } from './empresa-list/empresa-list.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {FormsModule} from '@angular/forms';
 import { EmpresaDetailComponent } from './empresa-detail/empresa-detail.component';
+import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 
 @NgModule({
   imports: [
+    GooglePlaceModule,
     CommonModule,
     EmpresaRoutingModule,
     FormsModule,
