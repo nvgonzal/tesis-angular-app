@@ -41,6 +41,7 @@ export class PedirServicioComponent implements OnInit {
     this.spinner.show();
     if (!this.selectedLongitude) {
       this.errors = 'Debes seleccionar un destino en el mapa!';
+      this.spinner.hide();
     } else {
       this.servicio.ubicacion = `${this.currentLatitude} ${this.currentLongitude}`;
       this.servicio.destino = `${this.selectedLatitude} ${this.selectedLongitude}`;

@@ -15,6 +15,7 @@ import { PedirServicioComponent } from './pedir-servicio/pedir-servicio.componen
 import {FormsModule} from '@angular/forms';
 import { ServicioPagadoComponent } from './servicio-pagado/servicio-pagado.component';
 import {VehiculoModule} from '../cliente-intra/vehiculo/vehiculo.module';
+import { WaitingPayComponent } from './waiting-pay/waiting-pay.component';
 
 
 @NgModule({
@@ -36,12 +37,14 @@ import {VehiculoModule} from '../cliente-intra/vehiculo/vehiculo.module';
     EvaluarChoferComponent,
     PedirServicioComponent,
     ServicioPagadoComponent,
+    WaitingPayComponent,
   ],
   entryComponents: [
     MapsComponent,
     ServicioHomeComponent,
     EvaluarChoferComponent,
     PedirServicioComponent,
+    WaitingPayComponent,
   ]
 })
 export class ServicioModule { }

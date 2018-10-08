@@ -8,6 +8,7 @@ import {PagarPaypalComponent} from '../pagos/pagar-paypal/pagar-paypal.component
 import {ServicioGruaService} from '../../services/servicio-grua.service';
 import {environment} from '../../../environments/environment';
 import {Title} from '@angular/platform-browser';
+import {WaitingPayComponent} from '../waiting-pay/waiting-pay.component';
 
 @Component({
   selector: 'app-servicio-home',
@@ -20,6 +21,7 @@ export class ServicioHomeComponent implements OnInit {
   private mapsComponentRef: ComponentRef<MapsComponent>;
   private pedirServicioRef: ComponentRef<PedirServicioComponent>;
   private pagarServicioRef: ComponentRef<PagarPaypalComponent>;
+  private waitPriceRef: ComponentRef<WaitingPayComponent>;
   empresa: Empresa;
   servicio: Servicio;
   currentLatitude: number;
@@ -63,15 +65,19 @@ export class ServicioHomeComponent implements OnInit {
 
   requestDone() {
     this.servicio = (<PedirServicioComponent>this.pedirServicioRef.instance).createdServicio;
+    const factory = this.componentFactoryResolver.resolveComponentFactory(WaitingPayComponent);
     const viewContainer = this.loader.viewContainerRef;
     viewContainer.clear();
-    this.waitingPrice = true;
-    this.waitPrice();
+    this.waitPriceRef = viewContainer.createComponent(factory);
+    (<WaitingPayComponent>this.waitPriceRef.instance).servicio = this.servicio;
+    (<WaitingPayComponent>this.waitPriceRef.instance).afterRecivePrice.subscribe(
+      () => this.generatePay()
+    );
   }
   generatePay() {
-    this.waitingPrice = false;
     const factory = this.componentFactoryResolver.resolveComponentFactory(PagarPaypalComponent);
     const viewContainer = this.loader.viewContainerRef;
+    viewContainer.clear();
     this.pagarServicioRef = viewContainer.createComponent(factory);
     (<PagarPaypalComponent>this.pagarServicioRef.instance).servicio = this.servicio;
   }
