@@ -21,6 +21,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     VehiculoCreateComponent,
     VehiculoListComponent,
     VehiculoEditComponent,
-  ]
+  ],
+  exports: [
+    VehiculoCreateComponent,
+  ],
 })
 export class VehiculoModule { }

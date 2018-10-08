@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Vehiculo} from '../../../models/vehiculo';
 import {VehiculoService} from '../../../services/vehiculo.service';
 import {NgxSpinnerService} from 'ngx-spinner';
@@ -17,6 +17,7 @@ export class VehiculoCreateComponent implements OnInit {
   marcasVehiculos;
   message: string;
   errors: any;
+  @Output() public afterCreateVehiculo = new EventEmitter<void>();
   constructor(private vehiculoService: VehiculoService,
               private spinner: NgxSpinnerService,
               private router: Router,
@@ -35,10 +36,15 @@ export class VehiculoCreateComponent implements OnInit {
   }
   onSuccess(res: any) {
     this.message = res.message;
-    setTimeout(() => {
+    if (this.router.url === '/servicio') {
+      this.afterCreateVehiculo.next();
       this.spinner.hide();
-      this.router.navigateByUrl('/cliente/vehiculos/list');
-    }, 3900);
+    } else {
+      setTimeout(() => {
+        this.spinner.hide();
+        this.router.navigateByUrl('/cliente/vehiculos/list');
+      }, 3900);
+    }
   }
   errorHandle(res: any) {
     this.errors = res.error.error;

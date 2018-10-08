@@ -1,31 +1,35 @@
 <ngx-spinner
-  bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-atom">
+  bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-atom">
   <p style="font-size: 20px; color: white">Cargando...</p>
 </ngx-spinner>
 <div *ngIf="message" class="alert alert-warning" role="alert">
-{{message}}
+  {{message}}
 </div>
-<table class="table">
-  <thead>
-  <tr>
-    <th>#</th>
-    <th>Nombre</th>
-    <th>RUT</th>
-    <th>Email</th>
-    <th>Telefono fijo</th>
-    <th>Celular</th>
-    <th>Acciones</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let piloto of pilotos$ | async">
-    <th scope="col">{{piloto.id}}</th>
-    <td>{{piloto.nombre_completo}}</td>
-    <td>{{piloto.rut}}</td>
-    <td>{{piloto.email}}</td>
-    <td>{{piloto.telefono_fijo}}</td>
-    <td>{{piloto.celular}}</td>
-    <td><button title="Borrar piloto" class="btn btn-danger fa fa-trash" (click)="deletePiloto(piloto.id)"></button></td>
-  </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>RUT</th>
+      <th>Email</th>
+      <th>Telefono fijo</th>
+      <th>Celular</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let piloto of pilotos$ | async">
+      <th scope="col">{{piloto.id}}</th>
+      <td>{{piloto.nombre_completo}}</td>
+      <td>{{piloto.rut}}</td>
+      <td>{{piloto.email}}</td>
+      <td>{{piloto.telefono_fijo}}</td>
+      <td>{{piloto.celular}}</td>
+      <td>
+        <button title="Borrar piloto" class="btn btn-danger fa fa-trash" (click)="deletePiloto(piloto.id)"></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

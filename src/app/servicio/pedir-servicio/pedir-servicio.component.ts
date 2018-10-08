@@ -26,13 +26,14 @@ export class PedirServicioComponent implements OnInit {
   selectedLongitude: number;
   servicio: Servicio = new Servicio();
   createdServicio: Servicio;
+  createVehiculo: boolean;
   @Output() public afterCreateService = new EventEmitter<void>();
   constructor(private vehiculoService: VehiculoService,
               private servicioGruaService: ServicioGruaService,
               private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.vehiculos$ = this.vehiculoService.getVehiculos();
+    this.loadVehiculos();
   }
 
   crearServicio() {
@@ -70,5 +71,14 @@ export class PedirServicioComponent implements OnInit {
     this.errors = res.errors;
     this.spinner.hide();
   }
-
+  addVehiculo() {
+    this.createVehiculo = true;
+  }
+  handleCreateVehiculo(): void {
+    this.createVehiculo = false;
+    this.loadVehiculos();
+  }
+  loadVehiculos(): void {
+    this.vehiculos$ = this.vehiculoService.getVehiculos();
+  }
 }

@@ -21,14 +21,13 @@ import {VehiculoModule} from '../cliente-intra/vehiculo/vehiculo.module';
   imports: [
     CommonModule,
     PagosModule,
-    VehiculoModule,
     ServicioRoutingModule,
-    CommonModule,
     AgmCoreModule,
     AgmSnazzyInfoWindowModule,
     StarRatingModule.forChild(),
     NgxSpinnerModule,
     FormsModule,
+    VehiculoModule,
   ],
   declarations: [
     ServicioHomeComponent,
