@@ -38,7 +38,7 @@
     </div>
     <div class="form-group">
       <label for="direccion">Direccion</label>
-      <input id="direccion" class="form-control" name="direccion" [(ngModel)]="empresa.direccion" required>
+      <input ngx-google-places-autocomplete id="direccion" class="form-control" name="direccion" [(ngModel)]="empresa.direccion" required>
       <div *ngIf="errors && errors.direccion">
         <div class="alert alert-danger" role="alert">
           <strong>{{errors.direccion}}</strong>
