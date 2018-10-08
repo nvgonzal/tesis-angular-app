@@ -17,16 +17,15 @@ export class PilotoService {
   getPilotos(): Observable<any> {
     return this.http.get(this.url);
   }
-  public createPiloto(email: string, nombre: string, apellido_p: string, apellido_m: string,
-                  rut: string, celular: string, fono: string): Observable<any> {
+  public createPiloto(user: User): Observable<any> {
     return this.http.post(this.url, {
-      'email': email,
-      'nombre': nombre,
-      'ap_paterno': apellido_p,
-      'ap_materno': apellido_m,
-      'rut': rut,
-      'celular': celular,
-      'telefono_fijo': fono
+      'email': user.email,
+      'nombre': user.nombre,
+      'apellido_paterno': user.apellido_paterno,
+      'apelldio_materno': user.apellido_materno,
+      'rut': user.rut,
+      'celular': user.celular,
+      'telefono_fijo': user.telefono_fijo
     }, httpOptions);
   }
   deletePiloto(id: number) {

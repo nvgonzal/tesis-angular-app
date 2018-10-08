@@ -12,51 +12,111 @@
     <div class="form-group">
       <label for="nombre">Nombre</label>
       <input id="nombre" class="form-control" name="nombre" [(ngModel)]="empresaNombre" required>
+      <div *ngIf="errors && errors._empresa">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.nombre_empresa}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="razon_social">Razon social</label>
       <input id="razon_social" class="form-control" name="razon_social" [(ngModel)]="empresaRazonSocial" required>
+      <div *ngIf="errors && errors.razon_social">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.razon_social}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="rutEmpresa">Rut</label>
       <input id="rutEmpresa" class="form-control" name="rutEmpresa" [(ngModel)]="empresaRut" required>
+      <div *ngIf="errors && errors.rut_empresa">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.rut_empresa}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="direccion">Direccion</label>
       <input id="direccion" class="form-control" name="direccion" [(ngModel)]="empresaDireccion" required>
+      <div *ngIf="errors && errors.direccion">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.direccion}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="cuenta_pago">Cuenta pagos</label>
       <input id="cuenta_pago" class="form-control" name="cuenta_pago" [(ngModel)]="empresaCuentaPago" required>
+      <div *ngIf="errors && errors.cuenta_pago">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.cuenta_pago}}</strong>
+        </div>
+      </div>
     </div>
     <h3>Datos del dueño de la empresa</h3>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userEmail" required #spy>
+      <input type="email" id="email" class="form-control" name="email" [(ngModel)]="user.email" required>
+      <div *ngIf="errors && errors.email">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.email}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
-      <label for="nombres">Nombres</label>
-      <input id="nombres" class="form-control" name="nombre" [(ngModel)]="userNombres" required>
+      <label for="nombres">Nombre</label>
+      <input id="nombres" class="form-control" name="nombres" [(ngModel)]="user.nombre" required>
+      <div *ngIf="errors && errors.nombre">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.nombre}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="ap_paterno">Apellido Paterno</label>
-      <input id="ap_paterno" class="form-control" name="ap_paterno" [(ngModel)]="userApellidoP" required>
+      <input id="ap_paterno" class="form-control" name="ap_paterno" [(ngModel)]="user.apellido_paterno" required>
+      <div *ngIf="errors && errors.ap_paterno">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.ap_paterno}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="ap_materno">Apellido Materno</label>
-      <input id="ap_materno" class="form-control" name="ap_materno" [(ngModel)]="userApellidoM" required>
+      <input id="ap_materno" class="form-control" name="ap_materno" [(ngModel)]="user.apellido_materno" required>
+      <div *ngIf="errors && errors.ap_materno">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.ap_materno}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="rut">Rut</label>
-      <input id="rut" class="form-control" name="rut" [(ngModel)]="userRut">
+      <input id="rut" class="form-control" name="rut" [(ngModel)]="user.rut">
+      <div *ngIf="errors && errors.rut">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.rut}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="celular">Telefono celular</label>
-      <input id="celular" class="form-control" name="celular" [(ngModel)]="userCelular" required>
+      <input id="celular" class="form-control" name="celular" [(ngModel)]="user.celular" required>
+      <div *ngIf="errors && errors.celular">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.celular}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="telefono_fijo">Telefono fijo</label>
-      <input id="telefono_fijo" class="form-control" name="fono" [(ngModel)]="userFono">
+      <input id="telefono_fijo" class="form-control" name="telefono_fijo" [(ngModel)]="user.telefono_fijo">
+      <div *ngIf="errors && errors.telefono_celular">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.telefono_celular}}</strong>
+        </div>
+      </div>
     </div>
     <button type="submit" class="btn btn-danger" [disabled]="!registerForm.form.valid"
             (click)="createEmpresa()" >Crear cuenta</button>

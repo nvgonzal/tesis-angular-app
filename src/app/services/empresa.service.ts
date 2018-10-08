@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs/index';
 import {Empresa} from '../models/empresa';
+import {User} from '../models/user';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept' : 'application/json'})
 };
@@ -17,17 +18,16 @@ export class EmpresaService {
   getEmpresas(): Observable<any> {
     return this.http.get(this.url, httpOptions);
   }
-  createEmpresa(email: string, nombre: string, apellido_p: string, apellido_m: string,
-                rut: string, celular: string, fono: string, nombreEmpresa: string,
+  createEmpresa(user: User, nombreEmpresa: string,
                 razon_social: string, rutEmpresa: string, direccion: string, cuenta_pago: string): Observable<any> {
     return this.http.post(this.url, {
-      'email': email,
-      'nombre': nombre,
-      'ap_paterno': apellido_p,
-      'ap_materno': apellido_m,
-      'rut': rut,
-      'celular': celular,
-      'telefono_fijo': fono,
+      'email': user.email,
+      'nombre': user.nombre,
+      'apellido_paterno': user.apellido_paterno,
+      'apellido_materno': user.apellido_materno,
+      'rut': user.rut,
+      'celular': user.celular,
+      'telefono_fijo': user.telefono_fijo,
       'nombre_empresa': nombreEmpresa,
       'razon_social': razon_social,
       'rut_empresa': rutEmpresa,

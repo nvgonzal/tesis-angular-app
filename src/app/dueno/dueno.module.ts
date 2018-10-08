@@ -11,7 +11,6 @@ import {BrowserModule} from '@angular/platform-browser';
 @NgModule({
   imports: [
     CommonModule,
-    PilotoModule,
     DuenoRoutingModule,
     CommonsResourcesModule,
     HttpClientModule,

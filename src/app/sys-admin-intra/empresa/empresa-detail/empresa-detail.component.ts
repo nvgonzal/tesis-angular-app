@@ -15,7 +15,7 @@ export class EmpresaDetailComponent implements OnInit {
   appName: string = environment.appName;
   empresa: Empresa = new Empresa();
   id: number;
-  errors: string;
+  errors: any;
 
   constructor(private empresaService: EmpresaService,
               private route: ActivatedRoute,
@@ -41,7 +41,7 @@ export class EmpresaDetailComponent implements OnInit {
     this.router.navigateByUrl('/sysadmin/empresas/list');
   }
   handleError(res) {
-    this.errors = res.errors;
+    this.errors = res.error.error;
     this.spinner.hide();
   }
 

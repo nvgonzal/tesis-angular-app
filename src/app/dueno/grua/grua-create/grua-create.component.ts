@@ -4,6 +4,7 @@ import {NgxSpinnerModule, NgxSpinnerService} from 'ngx-spinner';
 import {Router} from '@angular/router';
 import {environment} from '../../../../environments/environment';
 import {Title} from '@angular/platform-browser';
+import {VehiculoService} from '../../../services/vehiculo.service';
 
 @Component({
   selector: 'app-grua-create',
@@ -18,14 +19,17 @@ export class GruaCreateComponent implements OnInit {
   tipo: string;
   marca: string;
   modelo: string;
+  marcasVehiculos;
   constructor(private gruaService: GruaService,
               private spinner: NgxSpinnerService,
               private router: Router,
-              private title: Title) { }
+              private title: Title,
+              private vehiculoService: VehiculoService) { }
 
   ngOnInit() {
     this.title.setTitle('Registrar grua - ' + this.appName);
     this.message = 'Cargando...';
+    this.marcasVehiculos = this.vehiculoService.marcasVehiculos;
   }
 
   createGrua() {
@@ -42,7 +46,7 @@ export class GruaCreateComponent implements OnInit {
     }, 5000);
   }
   errorHandle(res: any) {
-    this.errors = res.errors;
+    this.errors = res.error.error;
     this.spinner.hide();
   }
 }

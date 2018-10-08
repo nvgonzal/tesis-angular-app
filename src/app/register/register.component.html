@@ -1,47 +1,88 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+  <app-header></app-header>
+</nav>
 <ngx-spinner
-  bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-atom">
+  bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-atom">
   <p style="font-size: 20px; color: white">{{message}}</p>
 </ngx-spinner>
 <div class="container">
   <h2>Crear cuenta</h2>
-  <div *ngIf="errors">
-    <p>{{errors}}</p>
-  </div>
   <form #registerForm="ngForm">
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" id="email" class="form-control" name="email" [(ngModel)]="userEmail" required #spy>
-      {{spy.className}}
+      <input type="email" id="email" class="form-control" name="email" [(ngModel)]="user.email" required>
+      <div *ngIf="errors && errors.email">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.email}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
-      <label for="nombres">Nombres</label>
-      <input id="nombres" class="form-control" name="nombre" [(ngModel)]="userNombres" required>
+      <label for="nombre">Nombre</label>
+      <input id="nombre" class="form-control" name="nombre" [(ngModel)]="user.nombre" required>
+      <div *ngIf="errors && errors.nombre">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.nombre}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="ap_paterno">Apellido Paterno</label>
-      <input id="ap_paterno" class="form-control" name="ap_paterno" [(ngModel)]="userApellidoP" required>
+      <input id="ap_paterno" class="form-control" name="ap_paterno" [(ngModel)]="user.apellido_paterno" required>
+      <div *ngIf="errors && errors.ap_paterno">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.ap_paterno}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="ap_materno">Apellido Materno</label>
-      <input id="ap_materno" class="form-control" name="ap_materno" [(ngModel)]="userApellidoM" required>
+      <input id="ap_materno" class="form-control" name="ap_materno" [(ngModel)]="user.apellido_materno" required>
+      <div *ngIf="errors && errors.ap_materno">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.ap_materno}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="rut">Rut</label>
-      <input id="rut" class="form-control" name="rut" [(ngModel)]="userRut">
+      <input id="rut" class="form-control" name="rut" [(ngModel)]="user.rut">
+      <div *ngIf="errors && errors.rut">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.rut}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="password">Contraseña</label>
-      <input type="password" id="password" class="form-control" name="password" [(ngModel)]="userPassword" minlength="6" required>
+      <input type="password" id="password" class="form-control" name="password" [(ngModel)]="userPassword" minlength="6"
+             required>
+      <div *ngIf="errors && errors.password">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.password}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="celular">Telefono celular</label>
-      <input id="celular" class="form-control" name="celular" [(ngModel)]="userCelular" required>
+      <input id="celular" class="form-control" name="celular" [(ngModel)]="user.celular" required>
+      <div *ngIf="errors && errors.celular">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.celular}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="telefono_fijo">Telefono fijo</label>
-      <input id="telefono_fijo" class="form-control" name="fono" [(ngModel)]="userFono">
+      <input id="telefono_fijo" class="form-control" name="fono" [(ngModel)]="user.telefono_fijo">
+      <div *ngIf="errors && errors.telefono_celular">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.telefono_celular}}</strong>
+        </div>
+      </div>
     </div>
     <button type="submit" class="btn btn-danger" [disabled]="!registerForm.form.valid"
-    (click)="submit()" >Crear cuenta</button>
+            (click)="submit()">Crear cuenta
+    </button>
   </form>
 </div>

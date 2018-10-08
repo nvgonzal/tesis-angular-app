@@ -11,6 +11,48 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class VehiculoService {
+  public marcasVehiculos = [
+    'Alfa Romeo',
+    'Audi',
+    'Bmw',
+    'BYD',
+    'Changan',
+    'Chery',
+    'Chevrolet',
+    'Citroen',
+    'Chrystler',
+    'DFM',
+    'Dodge',
+    'Ferrari',
+    'Fiat',
+    'Ford',
+    'Great Wall',
+    'Honda',
+    'Hyundai',
+    'Jac',
+    'Jaguar',
+    'Jeep',
+    'Kia',
+    'Lada',
+    'Land Rover',
+    'Lexus',
+    'Mahindra',
+    'Mazda',
+    'Mercedez-Benz',
+    'MG',
+    'Mitsubishi',
+    'Nissan',
+    'Opel',
+    'Peugeot',
+    'Porsche',
+    'Renault',
+    'Skoda',
+    'Subaru',
+    'Suzuki',
+    'Toyota',
+    'Volkswagen',
+    'Volvo',
+  ];
   private url = environment.url + '/api/vehiculos';
 
   constructor(private http: HttpClient) { }
@@ -19,7 +61,7 @@ export class VehiculoService {
   }
   createVehiculo(vehiculo: Vehiculo) {
     return this.http.post(this.url, {
-      'patente': vehiculo.patente_vehiculo,
+      'patente_vehiculo': vehiculo.patente_vehiculo,
       'marca': vehiculo.marca,
       'modelo': vehiculo.modelo,
       'color': vehiculo.color,
@@ -30,7 +72,7 @@ export class VehiculoService {
   }
   editVehiculo(vehiculo: Vehiculo, id: number) {
     return this.http.put(`${this.url}/${id}`, {
-      'patente': vehiculo.patente_vehiculo,
+      'patente_vehiculo': vehiculo.patente_vehiculo,
       'marca': vehiculo.marca,
       'modelo': vehiculo.modelo,
       'color': vehiculo.color,

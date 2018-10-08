@@ -12,22 +12,47 @@
     <div class="form-group">
       <label for="nombre">Nombre</label>
       <input id="nombre" class="form-control" name="nombre" [(ngModel)]="empresa.nombre" required>
+      <div *ngIf="errors && errors.nombre_empresa">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.nombre_empresa}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="razon_social">Razon social</label>
       <input id="razon_social" class="form-control" name="razon_social" [(ngModel)]="empresa.razon_social" required>
+      <div *ngIf="errors && errors.razon_social">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.razon_social}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="rutEmpresa">Rut</label>
       <input id="rutEmpresa" class="form-control" name="rutEmpresa" [(ngModel)]="empresa.rut" required>
+      <div *ngIf="errors && errors.rut_empresa">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.rut_empresa}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="direccion">Direccion</label>
       <input id="direccion" class="form-control" name="direccion" [(ngModel)]="empresa.direccion" required>
+      <div *ngIf="errors && errors.direccion">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.direccion}}</strong>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="cuenta_pago">Cuenta pagos</label>
       <input id="cuenta_pago" class="form-control" name="cuenta_pago" [(ngModel)]="empresa.cuenta_pago" required>
+      <div *ngIf="errors && errors.cuenta_pago">
+        <div class="alert alert-danger" role="alert">
+          <strong>{{errors.cuenta_pago}}</strong>
+        </div>
+      </div>
     </div>
     <button type="submit" class="btn btn-danger" [disabled]="!registerForm.form.valid"
             (click)="editarEmpresa()" >Editar empresa</button>

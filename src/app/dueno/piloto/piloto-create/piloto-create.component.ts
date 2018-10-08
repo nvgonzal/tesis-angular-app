@@ -4,6 +4,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
 import {Router} from '@angular/router';
 import {environment} from '../../../../environments/environment';
 import {Title} from '@angular/platform-browser';
+import {User} from '../../../models/user';
 
 @Component({
   selector: 'app-piloto-create',
@@ -21,6 +22,7 @@ export class PilotoCreateComponent implements OnInit {
   userRut: string;
   userCelular: string;
   userFono: string;
+  user: User = new User();
   constructor(private pilotoService: PilotoService,
               private spinner: NgxSpinnerService,
               private router: Router,
@@ -32,8 +34,7 @@ export class PilotoCreateComponent implements OnInit {
   }
   createPiloto() {
     this.spinner.show();
-    this.pilotoService.createPiloto(this.userEmail, this.userNombres, this.userApellidoP
-      , this.userApellidoM, this.userRut, this.userCelular, this.userFono).subscribe(
+    this.pilotoService.createPiloto(this.user).subscribe(
         res => this.onSuccess(res),
       res => this.errorHandle(res));
   }
@@ -45,7 +46,7 @@ export class PilotoCreateComponent implements OnInit {
     }, 5000);
   }
   errorHandle(res: any) {
-    this.errors = res.errors;
+    this.errors = res.error.error;
     this.spinner.hide();
   }
 }

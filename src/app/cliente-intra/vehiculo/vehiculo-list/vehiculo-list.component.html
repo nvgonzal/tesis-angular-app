@@ -1,35 +1,38 @@
 <ngx-spinner
-  bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-atom">
+  bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-atom">
   <p style="font-size: 20px; color: white">Cargando...</p>
 </ngx-spinner>
-<div *ngIf="message">
+<div *ngIf="message" class="alert alert-warning" role="alert">
   {{message}}
 </div>
-<table class="table">
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Patente</th>
-    <th>Marca</th>
-    <th>Modelo</th>
-    <th>Color</th>
-    <th>Accion</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let vehiculo of vehiculos$ | async | paginate: {itemsPerPage: 5, currentPage: p}">
-    <th scope="col">{{vehiculo.id}}</th>
-    <td>{{vehiculo.patente_vehiculo}}</td>
-    <td>{{vehiculo.marca}}</td>
-    <td>{{vehiculo.modelo}}</td>
-    <td>{{vehiculo.color}}</td>
-    <td>
-      <button style="margin: 1rem;" class="btn btn-warning fa fa-pencil" routerLink="/cliente/vehiculos/edit/{{vehiculo.id}}"></button>
-      <button class="btn btn-danger fa fa-trash" (click)="deleteGrua(vehiculo.id)"></button>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Patente</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Color</th>
+      <th>Accion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let vehiculo of vehiculos$ | async | paginate: {itemsPerPage: 5, currentPage: p}">
+      <th scope="col">{{vehiculo.id}}</th>
+      <td>{{vehiculo.patente_vehiculo}}</td>
+      <td>{{vehiculo.marca}}</td>
+      <td>{{vehiculo.modelo}}</td>
+      <td>{{vehiculo.color}}</td>
+      <td>
+        <button style="margin: 1rem;" class="btn btn-warning fa fa-pencil"
+                routerLink="/cliente/vehiculos/edit/{{vehiculo.id}}"></button>
+        <button class="btn btn-danger fa fa-trash" (click)="deleteGrua(vehiculo.id)"></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 <div class="center-all">
   <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
 </div>

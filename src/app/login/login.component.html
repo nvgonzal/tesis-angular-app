@@ -3,6 +3,9 @@
   <p style="font-size: 20px; color: white">Cargando...</p>
 </ngx-spinner>
 <div class="container">
+  <div class="alert alert-danger" *ngIf="error">
+    {{error}}
+  </div>
   <h1>Inicia sesion</h1>
     <form #loginForm="ngForm"><div class="form-group">
       <label for="email">Email</label>
@@ -14,7 +17,4 @@
     </div>
     <button class="btn btn-success" [disabled]="!loginForm.form.valid" (click)="login(userPass.value)" >Iniciar sesion</button>
     </form>
-  <div class="alert alert-danger" *ngIf="error">
-    {{error}}
-  </div>
 </div>

@@ -10,13 +10,9 @@ import {FormsModule} from '@angular/forms';
 import {AuthGuard} from './guards/auth.guard';
 import {AuthTokenInterceptor} from './helpers/auth.interceptor';
 import {NgxSpinnerModule} from 'ngx-spinner';
-import {DuenoModule} from './dueno/dueno.module';
 import {CommonsResourcesModule} from './commons/commons-resources.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import {SysAdminIntraModule} from './sys-admin-intra/sys-admin-intra.module';
 import { AgmCoreModule } from '@agm/core';
-import {ServicioModule} from './servicio/servicio.module';
-import {ClienteIntraModule} from './cliente-intra/cliente-intra.module';
 import {StarRatingModule} from 'angular-star-rating';
 
 

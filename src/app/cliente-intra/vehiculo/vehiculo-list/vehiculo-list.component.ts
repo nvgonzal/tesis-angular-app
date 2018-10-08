@@ -26,7 +26,8 @@ export class VehiculoListComponent implements OnInit {
     this.spinner.show();
     this.vehiculoService.deleteVehiculo(id).subscribe(
       res => {this.message = 'Vehiculo eliminado'; this.spinner.hide(); this.updateList(); },
-      res => {this.message = 'No se ha podido eliminar vehiculo'; this.spinner.hide(); }
+      res => {this.message = 'No se ha podido eliminar vehiculo. No podras eliminar un vehiculo si lo registraste en una solicitud de grua'
+      ; this.spinner.hide(); }
     );
   }
   updateList() {

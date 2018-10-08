@@ -26,8 +26,8 @@
     <td>{{empresa.direccion}}</td>
     <td>{{empresa.cuenta_pago}}</td>
     <td>{{empresa.valoracion}}</td>
-    <td><button (click)="removeEmpresa(empresa.id)"><i class="fa fa-remove fa-fw"></i></button></td>
-    <td><button routerLink="/sysadmin/empresas/details/{{empresa.id}}"><i class="fa fa-book fa-fw"></i> </button></td>
+    <td><button class="btn btn-warning" (click)="removeEmpresa(empresa.id)"><i class="fa fa-trash fa-fw"></i></button></td>
+    <td><button class="btn btn-danger" routerLink="/sysadmin/empresas/details/{{empresa.id}}"><i class="fa fa-pencil fa-fw"></i> </button></td>
   </tr>
   </tbody>
 </table>

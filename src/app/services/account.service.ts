@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs/index';
+import {User} from '../models/user';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept' : 'application/json'})
@@ -15,17 +16,16 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
 
-  public register(email: string, nombre: string, apellido_p: string, apellido_m: string,
-           rut: string, password: string, celular: string, fono: string): Observable<any> {
+  public register(user: User, password: string): Observable<any> {
     return this.http.post(this.url + '/register', {
-      'email': email,
-      'nombre': nombre,
+      'email': user.email,
+      'nombre': user.nombre,
       'password': password,
-      'ap_paterno': apellido_p,
-      'ap_materno': apellido_m,
-      'rut': rut,
-      'celular': celular,
-      'telefono_fijo': fono
+      'apellido_paterno': user.apellido_paterno,
+      'apellido_materno': user.apellido_materno,
+      'rut': user.rut,
+      'celular': user.celular,
+      'telefono_fijo': user.celular
     }, httpOptions);
   }
 }

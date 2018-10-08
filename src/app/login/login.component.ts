@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit, OnDestroy {
               private title: Title) { }
 
   ngOnInit() {
-    this.title.setTitle('Iniciar sesion - '+ this.appName);
+    this.title.setTitle('Iniciar sesion - ' + this.appName);
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'home';
     this.userEmail = this.route.snapshot.queryParams['email'] || '';
   }

@@ -1,12 +1,11 @@
-
 <agm-map
-  [latitude]="fakeLatitude"
-  [longitude]="fakeLongitude"
+  [latitude]="currentLatitude"
+  [longitude]="currentLongitude"
   [zoom]="15"
   [mapTypeControl]="true"
   [disableDefaultUI]="false"
   [streetViewControlOptions]="true">
-  <agm-marker [latitude]="fakeLatitude" [longitude]="fakeLongitude">
+  <agm-marker [latitude]="currentLatitude" [longitude]="currentLongitude">
     <agm-info-window>
       <pre style="background-color: yellow;">{{currentLongitude}}, {{currentLatitude}}</pre>
       My Current Location
@@ -18,13 +17,18 @@
     [longitude]="mark.longitud"
     [animation]="DROP"
     [openInfoWindow]="true">
-    <agm-info-window>
-      {{mark.nombre_empresa}}
-      {{mark.direccion}}
-      {{mark.valoracion}}
-      <button (click)="pedirGrua(mark)">Pedir grua</button>
+    <agm-info-window [maxWidth]="300">
+      <div>
+        <ul>
+          <li><h5>{{mark.nombre}}</h5></li>
+          <li>Direccion: {{mark.direccion}}</li>
+          <star-rating [numOfStars]="5" [rating]=mark.valoracion [disabled]="true" [showHalfStars]="true">
+          </star-rating>
+          <li><a class="btn btn-danger" (click)="pedirGrua(mark)">Pedir grua</a></li>
+        </ul>
+      </div>
     </agm-info-window>
   </agm-marker>
 </agm-map>
 
-<button class="btn btn-warning"  (click)="buscarGrua()">Buscar Gruas</button>
+<button class="btn btn-warning" (click)="buscarGrua()">Buscar Gruas</button>

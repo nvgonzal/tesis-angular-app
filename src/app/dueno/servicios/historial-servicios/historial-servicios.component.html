@@ -14,13 +14,13 @@
     <tbody>
     <tr *ngFor="let servicio of servicios$ | async | paginate: {itemsPerPage: 10, currentPage: p}">
       <th scope="col">{{servicio.id}}</th>
-      <td title="{{servicio.created_at.human}}">{{servicio.created_at.fecha | date:"short"}}</td>
+      <td title="{{servicio.created_at.human}}">{{servicio.created_at.fecha | date:"dd/MM/yyyy hh:mm:ss a"}}</td>
       <td>{{servicio.descripcion}}</td>
       <td>{{servicio.descripcion_chofer}}</td>
-      <td>{{servicio.evaluacion_cliente}}</td>
-      <td>{{servicio.evaluacion_empresa}}</td>
+      <td><star-rating [numOfStars]="5" [rating]="servicio.evaluacion_cliente" [disabled]="true"></star-rating></td>
+      <td><star-rating [numOfStars]="5" [rating]="servicio.evaluacion_empresa" [disabled]="true"></star-rating></td>
       <td>
-        <button (click)="verDetalle(servicio)" class="btn btn-success fa fa-search"></button>
+        <button title="Ver detalle" (click)="verDetalle(servicio)" class="btn btn-success fa fa-search"></button>
       </td>
     </tr>
     </tbody>

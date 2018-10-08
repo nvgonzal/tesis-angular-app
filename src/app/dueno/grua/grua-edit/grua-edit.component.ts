@@ -5,6 +5,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
 import { Grua} from '../../../models/grua';
 import {environment} from '../../../../environments/environment';
 import {Title} from '@angular/platform-browser';
+import {VehiculoService} from '../../../services/vehiculo.service';
 
 @Component({
   selector: 'app-grua-edit',
@@ -15,14 +16,17 @@ export class GruaEditComponent implements OnInit {
   appName: string = environment.appName;
   message: string;
   errors: any;
-  grua: Grua;
+  grua: Grua = new Grua();
   data: any;
   id: number;
+  marcasVehiculos;
   constructor(private activatedRoute: ActivatedRoute, private gruaService: GruaService,
               private spinner: NgxSpinnerService, private router: Router,
-              private title: Title) {
+              private title: Title,
+              private vehiculoService: VehiculoService) {
   }
   ngOnInit() {
+    this.marcasVehiculos = this.vehiculoService.marcasVehiculos;
     this.title.setTitle('Editar grua - ' + this.appName);
     this.id = this.activatedRoute.snapshot.params['id'];
     if (this.id) {
@@ -49,7 +53,7 @@ export class GruaEditComponent implements OnInit {
     }, 5000);
   }
   errorHandle(res: any) {
-    this.errors = res.errors;
+    this.errors = res.error.error;
     this.spinner.hide();
   }
 }

@@ -14,17 +14,20 @@ import {Title} from '@angular/platform-browser';
 export class VehiculoCreateComponent implements OnInit {
   appName: string = environment.appName;
   vehiculo: Vehiculo = new Vehiculo();
+  marcasVehiculos;
   message: string;
-  errors: string;
+  errors: any;
   constructor(private vehiculoService: VehiculoService,
               private spinner: NgxSpinnerService,
               private router: Router,
               private title: Title) { }
 
   ngOnInit() {
-    this.title.setTitle('Crear nuevo vehiculo - ' + this.appName);
+    this.title.setTitle('Ingresar vehiculo - ' + this.appName);
+    this.marcasVehiculos = this.vehiculoService.marcasVehiculos;
   }
   createVehiculo() {
+    this.message = 'Cargando...';
     this.spinner.show();
     this.vehiculoService.createVehiculo(this.vehiculo).subscribe(
       res => this.onSuccess(res),
@@ -38,7 +41,7 @@ export class VehiculoCreateComponent implements OnInit {
     }, 5000);
   }
   errorHandle(res: any) {
-    this.errors = res.errors;
+    this.errors = res.error.error;
     this.spinner.hide();
   }
 

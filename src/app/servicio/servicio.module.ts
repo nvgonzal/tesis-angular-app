@@ -14,12 +14,14 @@ import {ServicioLoaderDirective} from './servicio-loader.directive';
 import { PedirServicioComponent } from './pedir-servicio/pedir-servicio.component';
 import {FormsModule} from '@angular/forms';
 import { ServicioPagadoComponent } from './servicio-pagado/servicio-pagado.component';
+import {VehiculoModule} from '../cliente-intra/vehiculo/vehiculo.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
     PagosModule,
+    VehiculoModule,
     ServicioRoutingModule,
     CommonModule,
     AgmCoreModule,

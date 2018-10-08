@@ -16,7 +16,8 @@ export class VehiculoEditComponent implements OnInit {
   vehiculo: Vehiculo = new Vehiculo();
   id: number;
   message: string;
-  errors: string;
+  errors: any;
+  marcasVehiculos;
   constructor(private vehiculoService: VehiculoService,
               private spinner: NgxSpinnerService,
               private router: Router,
@@ -24,11 +25,13 @@ export class VehiculoEditComponent implements OnInit {
               private title: Title) { }
 
   ngOnInit() {
+    this.marcasVehiculos = this.vehiculoService.marcasVehiculos;
     this.title.setTitle('Modificar vehiculo - ' + this.appName);
     this.id = +this.activatedRoute.snapshot.paramMap.get('id');
     this.vehiculoService.getVehiculoById(this.id).subscribe(res => this.vehiculo = res);
   }
   editVehiculo() {
+    this.message = 'Cargando...';
     this.spinner.show();
     this.vehiculoService.editVehiculo(this.vehiculo, this.id).subscribe(
       res => this.onSuccess(res),
@@ -42,7 +45,7 @@ export class VehiculoEditComponent implements OnInit {
     }, 5000);
   }
   errorHandle(res: any) {
-    this.errors = res.errors;
+    this.errors = res.error.error;
     this.spinner.hide();
   }
 }

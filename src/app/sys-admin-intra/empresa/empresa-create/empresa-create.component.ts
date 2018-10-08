@@ -4,6 +4,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
 import {Router} from '@angular/router';
 import {environment} from '../../../../environments/environment';
 import {Title} from '@angular/platform-browser';
+import {User} from '../../../models/user';
 
 @Component({
   selector: 'app-empresa-create',
@@ -14,13 +15,7 @@ export class EmpresaCreateComponent implements OnInit {
   appName: string = environment.appName;
   message: string;
   errors: any;
-  userEmail: string;
-  userNombres: string;
-  userApellidoP: string;
-  userApellidoM: string;
-  userRut: string;
-  userCelular: string;
-  userFono: string;
+  user: User = new User();
   empresaNombre: string;
   empresaRazonSocial: string;
   empresaRut: string;
@@ -38,8 +33,7 @@ export class EmpresaCreateComponent implements OnInit {
   createEmpresa() {
     this.message = 'Cargando...';
     this.spinner.show();
-    this.empresaService.createEmpresa(this.userEmail, this.userNombres, this.userApellidoP, this.userApellidoM, this.userRut,
-      this.userCelular, this.userFono, this.empresaNombre, this.empresaRazonSocial, this.empresaRut, this.empresaDireccion,
+    this.empresaService.createEmpresa(this.user, this.empresaNombre, this.empresaRazonSocial, this.empresaRut, this.empresaDireccion,
       this.empresaCuentaPago).subscribe(
         res => this.success(res),
         res => this.handleError(res));
@@ -52,6 +46,7 @@ export class EmpresaCreateComponent implements OnInit {
     }, 5000);
   }
   handleError(res) {
+    this.errors = res.error.error;
     this.message = 'Empresa no pudo ser ingresada al sistena';
     this.spinner.hide();
   }
