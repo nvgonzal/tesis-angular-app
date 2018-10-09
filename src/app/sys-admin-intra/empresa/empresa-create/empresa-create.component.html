@@ -76,18 +76,18 @@
     <div class="form-group">
       <label for="ap_paterno">Apellido Paterno</label>
       <input id="ap_paterno" class="form-control" name="ap_paterno" [(ngModel)]="user.apellido_paterno" required>
-      <div *ngIf="errors && errors.ap_paterno">
+      <div *ngIf="errors && errors.apellido_paterno">
         <div class="alert alert-danger" role="alert">
-          <strong>{{errors.ap_paterno}}</strong>
+          <strong>{{errors.apellido_paterno}}</strong>
         </div>
       </div>
     </div>
     <div class="form-group">
       <label for="ap_materno">Apellido Materno</label>
       <input id="ap_materno" class="form-control" name="ap_materno" [(ngModel)]="user.apellido_materno" required>
-      <div *ngIf="errors && errors.ap_materno">
+      <div *ngIf="errors && errors.apellido_materno">
         <div class="alert alert-danger" role="alert">
-          <strong>{{errors.ap_materno}}</strong>
+          <strong>{{errors.apellido_materno}}</strong>
         </div>
       </div>
     </div>

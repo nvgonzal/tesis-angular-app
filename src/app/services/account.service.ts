@@ -28,4 +28,12 @@ export class AccountService {
       'telefono_fijo': user.celular
     }, httpOptions);
   }
+
+  public changePassword(password: string, password_confirmation: string, new_password: string): Observable<any> {
+    return this.http.post(this.url + '/changepassword', {
+      'password': password,
+      'password_confirmation': password_confirmation,
+      'new_password': new_password,
+    }, httpOptions);
+  }
 }

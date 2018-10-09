@@ -8,12 +8,14 @@ import {AuthGuard} from './guards/auth.guard';
 import {DuenoGuard} from './guards/dueno.guard';
 import {AdminGuard} from './guards/admin.guard';
 import {ClienteGuard} from './guards/cliente.guard';
+import {PasswordUpdateComponent} from './password-update/password-update.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'cambiarpassword', component: PasswordUpdateComponent, canActivate: [AuthGuard]},
   { path: 'cliente', loadChildren: './cliente-intra/cliente-intra.module#ClienteIntraModule', canActivate: [AuthGuard, ClienteGuard]},
   { path: 'dueno', loadChildren: './dueno/dueno.module#DuenoModule', canActivate: [AuthGuard, DuenoGuard]},
   { path: 'servicio', loadChildren: './servicio/servicio.module#ServicioModule', canActivate: [AuthGuard, ClienteGuard]},

@@ -46,6 +46,7 @@ export class EmpresaCreateComponent implements OnInit {
     }, 5000);
   }
   handleError(res) {
+    console.log(res);
     this.errors = res.error.error;
     this.message = 'Empresa no pudo ser ingresada al sistena';
     this.spinner.hide();

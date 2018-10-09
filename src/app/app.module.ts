@@ -14,6 +14,7 @@ import {CommonsResourcesModule} from './commons/commons-resources.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AgmCoreModule } from '@agm/core';
 import {StarRatingModule} from 'angular-star-rating';
+import { PasswordUpdateComponent } from './password-update/password-update.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {StarRatingModule} from 'angular-star-rating';
     RegisterComponent,
     HomeComponent,
     PageNotFoundComponent,
+    PasswordUpdateComponent,
   ],
   imports: [
     NgxSpinnerModule,

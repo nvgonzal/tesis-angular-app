@@ -51,5 +51,7 @@ export class HeaderComponent implements OnInit {
   pedirServicio(): void {
     this.router.navigateByUrl('/servicio');
   }
-
+  changePassword(): void {
+    this.router.navigateByUrl('/cambiarpassword');
+  }
 }
