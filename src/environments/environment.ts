@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://tesis-backend.web',
+  url: 'http://tesis-ubb-2018-01.us-east-1.elasticbeanstalk.com',
   appName: 'TesisUBB',
 };
 
