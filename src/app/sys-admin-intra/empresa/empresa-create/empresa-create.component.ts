@@ -30,7 +30,8 @@ export class EmpresaCreateComponent implements OnInit {
     this.title.setTitle('Ingresar empresa - ' + this.appName);
   }
 
-  createEmpresa() {
+  createEmpresa(direccion: string) {
+    this.empresaDireccion = direccion;
     this.message = 'Cargando...';
     this.spinner.show();
     this.empresaService.createEmpresa(this.user, this.empresaNombre, this.empresaRazonSocial, this.empresaRut, this.empresaDireccion,
