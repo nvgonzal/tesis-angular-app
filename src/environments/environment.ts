@@ -8,6 +8,7 @@ export const environment = {
   appName: 'TesisUBB',
 };
 
+// Direccion pruebas http://tesis-backend.web
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
