@@ -31,7 +31,8 @@ export class EmpresaDetailComponent implements OnInit {
     this.id = +this.route.snapshot.paramMap.get('id');
     this.empresaService.getEmpresaById(this.id).subscribe(res => this.empresa = res);
   }
-  editarEmpresa() {
+  editarEmpresa(direccion: string) {
+    this.empresa.direccion = direccion;
     this.spinner.show();
     this.empresaService.editEmpresa(this.id, this.empresa).subscribe(
       res => this.success(res), res => this.handleError(res));
