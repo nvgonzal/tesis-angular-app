@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container col-md-offset-3 mensaje">
   <div *ngIf="!finalizado">
-    <div class="alert alert-danger" role="alert">
+    <div *ngIf="errors" class="alert alert-danger" role="alert">
       {{errors}}
     </div>
     <h4>La grua va en camino.</h4>

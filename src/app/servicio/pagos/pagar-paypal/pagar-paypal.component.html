@@ -1,20 +1,22 @@
 <ngx-spinner
-  bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-atom">
+  bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-atom">
   <p style="font-size: 20px; color: white">Cargando...</p>
 </ngx-spinner>
-<div *ngIf="!success">
-  <h3>Tu servicio solicitado ha sido tomado.</h3>
-  <p><b>Empresa:</b>{{informacionPago.nombre_empresa}}</p>
-  <p><b>Direccion:</b>{{informacionPago.direccion}}</p>
-  <h3>Detalle del pago</h3>
-  <p>Precio en pesos chilenos: {{informacionPago.monto}}</p>
-  <p>Valor dolar: {{informacionPago.valor_dolar}}</p>
-  <p>Precio final en dolares: {{informacionPago.precio_final}}</p>
-  <h3>Cuenta a que realizaras el pago</h3>
-  <p>{{informacionPago.cuenta_pago}}</p>
-  <button (click)="makePay()">Confirmar pago</button>
-</div>
-<div *ngIf="success">
-  <h2>{{payPalResponse.message}}</h2>
-  <a href="{{payPalResponse.link}}">Continuar a PayPal</a>
+<div class="container col-md-offset-3 mensaje">
+  <div *ngIf="!success">
+    <h3>Tu servicio solicitado ha sido tomado.</h3>
+    <p><b>Empresa:</b>{{informacionPago.nombre_empresa}}</p>
+    <p><b>Direccion:</b>{{informacionPago.direccion}}</p>
+    <h3>Detalle del pago</h3>
+    <p>Precio en pesos chilenos: {{informacionPago.monto}}</p>
+    <p>Valor dolar: {{informacionPago.valor_dolar}}</p>
+    <p>Precio final en dolares: {{informacionPago.precio_final}}</p>
+    <h3>Cuenta a que realizaras el pago</h3>
+    <p>{{informacionPago.cuenta_pago}}</p>
+    <button (click)="makePay()">Confirmar pago</button>
+  </div>
+  <div *ngIf="success">
+    <h3>{{payPalResponse.message}}</h3>
+    <a href="{{payPalResponse.link}}">Continuar a PayPal</a>
+  </div>
 </div>

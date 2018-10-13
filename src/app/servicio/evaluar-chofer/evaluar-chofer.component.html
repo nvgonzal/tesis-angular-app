@@ -2,7 +2,7 @@
   bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-atom">
   <p style="font-size: 20px; color: white">{{message}}</p>
 </ngx-spinner>
-<p>{{errors}}</p>
+<div class="container col-md-offset-2 mensaje"><p>{{errors}}</p>
 <h2>Evalua al chofer</h2>
 <div class="center-block">
   <h4>Empresa: {{empresa.nombre}}</h4>
@@ -13,4 +13,4 @@
   [starType]="'svg'"
   [hoverEnabled]="true" (ratingChange)="onRatingChange($event)">
 </star-rating>
-<button (click)="guardarEvaluacion()">Guardar evaluacion</button>
+<button class="btn btn-success" (click)="guardarEvaluacion()">Guardar evaluacion</button></div>
